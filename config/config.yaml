@@ -1,0 +1,61 @@
+# Configuración del Proyecto - Clasificación de Plantas Medicinales
+
+# Dataset
+dataset:
+  name: "medicinal_plants"
+  num_classes: 30  # Ajustar según el dataset seleccionado
+  image_size: 224
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+
+# Data Augmentation
+augmentation:
+  enabled: true
+  random_rotation: 15
+  random_flip: true
+  color_jitter:
+    brightness: 0.2
+    contrast: 0.2
+    saturation: 0.2
+  random_crop: true
+
+# Model
+model:
+  architecture: "mobilenet_v2"  # Opciones: resnet50, mobilenet_v2, efficientnet_b0
+  pretrained: true
+  freeze_layers: 0.7  # Congelar el 70% de las capas iniciales
+  dropout: 0.5
+
+# Training
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.001
+  optimizer: "adam"  # adam, sgd
+  scheduler: "step"  # step, cosine
+  step_size: 10
+  gamma: 0.1
+  early_stopping:
+    enabled: true
+    patience: 10
+
+# Paths
+paths:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  models_dir: "models"
+  checkpoints: "models/checkpoints"
+  logs: "logs"
+
+# Flask App
+app:
+  host: "0.0.0.0"
+  port: 5000
+  debug: true
+  upload_folder: "app/static/uploads"
+  max_content_length: 16  # MB
+  allowed_extensions: ["png", "jpg", "jpeg"]
+
+# Información de Plantas (se llenará en plantas_info.json)
+plants_info_file: "data/plantas_info.json"

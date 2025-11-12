@@ -1,0 +1,196 @@
+{
+  "plantas_medicinales": {
+    "aloe_vera": {
+      "nombre_cientifico": "Aloe vera",
+      "nombre_comun": "Aloe Vera, Sábila",
+      "familia": "Asphodelaceae",
+      "usos_tradicionales": [
+        "Cicatrización de heridas y quemaduras",
+        "Tratamiento de problemas digestivos",
+        "Hidratación de la piel",
+        "Alivio de irritaciones cutáneas"
+      ],
+      "propiedades": [
+        "Antiinflamatorio",
+        "Cicatrizante",
+        "Hidratante",
+        "Antioxidante"
+      ],
+      "modo_uso": "Gel tópico, jugo oral",
+      "precauciones": "No aplicar en heridas profundas. El consumo oral debe ser moderado."
+    },
+    "manzanilla": {
+      "nombre_cientifico": "Matricaria chamomilla",
+      "nombre_comun": "Manzanilla",
+      "familia": "Asteraceae",
+      "usos_tradicionales": [
+        "Tratamiento de problemas digestivos",
+        "Alivio de ansiedad e insomnio",
+        "Antiinflamatorio ocular",
+        "Calmante de dolores menstruales"
+      ],
+      "propiedades": [
+        "Sedante",
+        "Antiinflamatorio",
+        "Antiespasmódico",
+        "Digestivo"
+      ],
+      "modo_uso": "Infusión, compresas",
+      "precauciones": "Puede causar alergias en personas sensibles a plantas de la familia Asteraceae."
+    },
+    "menta": {
+      "nombre_cientifico": "Mentha piperita",
+      "nombre_comun": "Menta, Hierbabuena",
+      "familia": "Lamiaceae",
+      "usos_tradicionales": [
+        "Alivio de problemas digestivos",
+        "Tratamiento de dolores de cabeza",
+        "Descongestionante nasal",
+        "Alivio de náuseas"
+      ],
+      "propiedades": [
+        "Antiespasmódico",
+        "Carminativo",
+        "Analgésico",
+        "Refrescante"
+      ],
+      "modo_uso": "Infusión, aceite esencial, inhalación",
+      "precauciones": "El aceite esencial no debe usarse en niños pequeños. Evitar en personas con reflujo gastroesofágico."
+    },
+    "lavanda": {
+      "nombre_cientifico": "Lavandula angustifolia",
+      "nombre_comun": "Lavanda, Espliego",
+      "familia": "Lamiaceae",
+      "usos_tradicionales": [
+        "Alivio de ansiedad y estrés",
+        "Mejora del sueño",
+        "Tratamiento de heridas leves",
+        "Alivio de dolores de cabeza"
+      ],
+      "propiedades": [
+        "Sedante",
+        "Ansiolítico",
+        "Antiséptico",
+        "Cicatrizante"
+      ],
+      "modo_uso": "Aceite esencial, infusión, aromaterapia",
+      "precauciones": "El aceite esencial debe diluirse antes de aplicarse en la piel."
+    },
+    "romero": {
+      "nombre_cientifico": "Rosmarinus officinalis",
+      "nombre_comun": "Romero",
+      "familia": "Lamiaceae",
+      "usos_tradicionales": [
+        "Mejora de la memoria y concentración",
+        "Estimulante circulatorio",
+        "Alivio de dolores musculares",
+        "Tratamiento de problemas digestivos"
+      ],
+      "propiedades": [
+        "Estimulante",
+        "Antioxidante",
+        "Antiinflamatorio",
+        "Carminativo"
+      ],
+      "modo_uso": "Infusión, aceite esencial, condimento",
+      "precauciones": "Evitar en embarazo, epilepsia e hipertensión arterial."
+    },
+    "jengibre": {
+      "nombre_cientifico": "Zingiber officinale",
+      "nombre_comun": "Jengibre",
+      "familia": "Zingiberaceae",
+      "usos_tradicionales": [
+        "Alivio de náuseas y vómitos",
+        "Antiinflamatorio para artritis",
+        "Mejora de la digestión",
+        "Tratamiento de resfriados"
+      ],
+      "propiedades": [
+        "Antiemético",
+        "Antiinflamatorio",
+        "Carminativo",
+        "Termogénico"
+      ],
+      "modo_uso": "Infusión, consumo fresco, polvo",
+      "precauciones": "Puede interactuar con anticoagulantes. Evitar en dosis altas durante el embarazo."
+    },
+    "calendula": {
+      "nombre_cientifico": "Calendula officinalis",
+      "nombre_comun": "Caléndula, Maravilla",
+      "familia": "Asteraceae",
+      "usos_tradicionales": [
+        "Cicatrización de heridas",
+        "Tratamiento de dermatitis",
+        "Alivio de quemaduras leves",
+        "Antiinflamatorio tópico"
+      ],
+      "propiedades": [
+        "Cicatrizante",
+        "Antiinflamatorio",
+        "Antiséptico",
+        "Emoliente"
+      ],
+      "modo_uso": "Ungüento, crema, infusión para compresas",
+      "precauciones": "Puede causar alergias en personas sensibles a plantas de la familia Asteraceae."
+    },
+    "eucalipto": {
+      "nombre_cientifico": "Eucalyptus globulus",
+      "nombre_comun": "Eucalipto",
+      "familia": "Myrtaceae",
+      "usos_tradicionales": [
+        "Descongestionante respiratorio",
+        "Tratamiento de resfriados y gripes",
+        "Expectorante",
+        "Antiséptico"
+      ],
+      "propiedades": [
+        "Expectorante",
+        "Descongestionante",
+        "Antiséptico",
+        "Balsámico"
+      ],
+      "modo_uso": "Inhalación, aceite esencial, infusión",
+      "precauciones": "No usar en niños menores de 2 años. Puede ser tóxico si se ingiere en grandes cantidades."
+    },
+    "equinacea": {
+      "nombre_cientifico": "Echinacea purpurea",
+      "nombre_comun": "Equinácea",
+      "familia": "Asteraceae",
+      "usos_tradicionales": [
+        "Estimulación del sistema inmunológico",
+        "Prevención de resfriados",
+        "Cicatrización de heridas",
+        "Tratamiento de infecciones respiratorias"
+      ],
+      "propiedades": [
+        "Inmunoestimulante",
+        "Antiviral",
+        "Antibacteriano",
+        "Antiinflamatorio"
+      ],
+      "modo_uso": "Infusión, extracto, cápsulas",
+      "precauciones": "No usar en personas con enfermedades autoinmunes o alergias a la familia Asteraceae."
+    },
+    "valeriana": {
+      "nombre_cientifico": "Valeriana officinalis",
+      "nombre_comun": "Valeriana",
+      "familia": "Caprifoliaceae",
+      "usos_tradicionales": [
+        "Tratamiento del insomnio",
+        "Alivio de ansiedad",
+        "Sedante natural",
+        "Relajante muscular"
+      ],
+      "propiedades": [
+        "Sedante",
+        "Ansiolítico",
+        "Antiespasmódico",
+        "Hipnótico suave"
+      ],
+      "modo_uso": "Infusión, extracto, cápsulas",
+      "precauciones": "No combinar con alcohol o sedantes. Puede causar somnolencia."
+    }
+  },
+  "disclaimer": "Esta información es solo para fines educativos. Siempre consulte a un profesional de la salud antes de usar plantas medicinales para tratamiento.",
+  "ultima_actualizacion": "2025-11-12"
+}

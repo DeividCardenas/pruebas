@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificador de Plantas Medicinales 🌿</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🌿 Clasificador de Plantas Medicinales</h1>
+                <p class="subtitle">Identifica plantas medicinales y descubre sus usos tradicionales</p>
+                {% if model_loaded %}
+                <div class="status-badge success">
+                    ✓ Modelo cargado ({{ num_classes }} plantas)
+                </div>
+                {% else %}
+                <div class="status-badge warning">
+                    ⚠ Modelo no disponible - Entrena el modelo primero
+                </div>
+                {% endif %}
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-box" id="uploadBox">
+                    <div class="upload-icon">📷</div>
+                    <h2>Sube una imagen de una planta</h2>
+                    <p>Arrastra y suelta una imagen aquí o haz clic para seleccionar</p>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    <button class="btn-primary" id="selectBtn">Seleccionar Imagen</button>
+                    <p class="file-info">Formatos soportados: JPG, PNG (máx. 16MB)</p>
+                </div>
+
+                <!-- Preview -->
+                <div class="preview-section" id="previewSection" style="display: none;">
+                    <img id="previewImage" src="" alt="Preview">
+                    <button class="btn-secondary" id="changeImageBtn">Cambiar Imagen</button>
+                    <button class="btn-primary" id="analyzeBtn">Analizar Planta 🔍</button>
+                </div>
+            </section>
+
+            <!-- Loading -->
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analizando imagen...</p>
+            </div>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2>Resultados del Análisis</h2>
+
+                <!-- Main Result -->
+                <div class="result-card main-result">
+                    <div class="result-header">
+                        <h3 id="plantName">-</h3>
+                        <div class="confidence-badge" id="confidenceBadge">-</div>
+                    </div>
+                    <p class="scientific-name" id="scientificName">-</p>
+                </div>
+
+                <!-- Top Predictions -->
+                <div class="predictions-card">
+                    <h3>Top 3 Predicciones</h3>
+                    <div id="topPredictions"></div>
+                </div>
+
+                <!-- Plant Information -->
+                <div class="info-card" id="plantInfoCard" style="display: none;">
+                    <h3>Información de la Planta</h3>
+
+                    <div class="info-section">
+                        <h4>🌱 Familia Botánica</h4>
+                        <p id="plantFamily">-</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>💊 Usos Tradicionales</h4>
+                        <ul id="traditionalUses"></ul>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>✨ Propiedades</h4>
+                        <div class="properties-tags" id="properties"></div>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>📋 Modo de Uso</h4>
+                        <p id="usageMode">-</p>
+                    </div>
+
+                    <div class="info-section warning-box">
+                        <h4>⚠️ Precauciones</h4>
+                        <p id="precautions">-</p>
+                    </div>
+                </div>
+
+                <!-- Disclaimer -->
+                <div class="disclaimer">
+                    <strong>⚠️ Aviso importante:</strong> Esta información es solo para fines educativos.
+                    Siempre consulte a un profesional de la salud antes de usar plantas medicinales para tratamiento.
+                </div>
+
+                <!-- Try Again Button -->
+                <button class="btn-secondary" id="tryAgainBtn">Analizar Otra Planta</button>
+            </section>
+
+            <!-- Error Section -->
+            <section class="error-section" id="errorSection" style="display: none;">
+                <div class="error-card">
+                    <h3>❌ Error</h3>
+                    <p id="errorMessage"></p>
+                    <button class="btn-primary" id="retryBtn">Intentar de Nuevo</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Proyecto de Visión Computacional - Clasificación de Plantas Medicinales</p>
+            <p>Desarrollado con PyTorch + Transfer Learning (MobileNetV2) + Flask</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
