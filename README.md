@@ -319,4 +319,4 @@ Para preguntas o sugerencias, por favor abre un issue en este repositorio.
 
 ---
 
-**Desarrollado con ❤️ para el curso de Visión Computacional**
+**Desarrollado con ❤️ para el curso de Inteligencia Artificial**
