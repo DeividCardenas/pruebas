@@ -133,8 +133,8 @@ function displayResults(data) {
     // Mostrar sección de resultados
     resultsSection.style.display = 'block';
 
-    // Nombre de la planta
-    const plantName = formatPlantName(data.predicted_class);
+    // Nombre de la planta (usar display_name si está disponible)
+    const plantName = data.display_name || formatPlantName(data.predicted_class);
     document.getElementById('plantName').textContent = plantName;
 
     // Confianza
@@ -166,7 +166,9 @@ function displayTopPredictions(predictions) {
 
         const name = document.createElement('span');
         name.className = 'prediction-name';
-        name.textContent = `${index + 1}. ${formatPlantName(pred.class)}`;
+        // Usar display_name si está disponible, si no formatear
+        const displayName = pred.display_name || formatPlantName(pred.class);
+        name.textContent = `${index + 1}. ${displayName}`;
 
         const prob = document.createElement('span');
         prob.className = 'prediction-prob';
