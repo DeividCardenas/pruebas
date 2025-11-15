@@ -35,6 +35,8 @@ app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg'}
 model = None
 class_names = []
 plants_info = {}
+plant_mapping = {}
+display_names = {}
 device = 'cpu'
 
 
@@ -46,7 +48,7 @@ def allowed_file(filename):
 
 def load_model_and_info():
     """Carga el modelo entrenado y la información de plantas."""
-    global model, class_names, plants_info, device
+    global model, class_names, plants_info, plant_mapping, display_names, device
 
     print("\n" + "="*70)
     print("Iniciando Asistente de Plantas Medicinales")
@@ -55,6 +57,17 @@ def load_model_and_info():
     # Configurar dispositivo
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     print(f"Dispositivo: {device}")
+
+    # Cargar mapeo de nombres de plantas
+    mapping_path = ROOT_DIR / 'data' / 'plant_names_mapping.json'
+    if mapping_path.exists():
+        with open(mapping_path, 'r', encoding='utf-8') as f:
+            mapping_data = json.load(f)
+            plant_mapping = mapping_data.get('mapping', {})
+            display_names = mapping_data.get('display_names', {})
+        print(f"✓ Mapeo de nombres cargado: {len(plant_mapping)} plantas")
+    else:
+        print(f"⚠ Advertencia: No se encontró {mapping_path}")
 
     # Cargar información de plantas
     plants_info_path = ROOT_DIR / 'data' / 'plantas_info.json'
@@ -154,17 +167,30 @@ def predict_image(image_path):
             if i < len(top3_idx[0]):
                 class_idx = top3_idx[0][i].item()
                 prob = top3_prob[0][i].item() * 100
+                class_name = class_names[class_idx]
+
+                # Usar nombre para mostrar (en español bonito)
+                display_name = display_names.get(class_name, class_name)
+
                 top_predictions.append({
-                    'class': class_names[class_idx],
+                    'class': class_name,
+                    'display_name': display_name,
                     'probability': prob
                 })
 
-        # Obtener información de la planta
-        plant_info = plants_info.get('plantas_medicinales', {}).get(predicted_class, {})
+        # Mapear nombre en inglés a español para buscar información
+        spanish_key = plant_mapping.get(predicted_class, predicted_class.lower())
+
+        # Obtener información de la planta usando la clave en español
+        plant_info = plants_info.get('plantas_medicinales', {}).get(spanish_key, {})
+
+        # Nombre para mostrar al usuario
+        display_name = display_names.get(predicted_class, predicted_class)
 
         return {
             'success': True,
             'predicted_class': predicted_class,
+            'display_name': display_name,
             'confidence': confidence_score,
             'top_predictions': top_predictions,
             'plant_info': plant_info

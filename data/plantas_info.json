@@ -1,52 +1,33 @@
 {
   "plantas_medicinales": {
-    "aloe_vera": {
-      "nombre_cientifico": "Aloe vera",
-      "nombre_comun": "Aloe Vera, Sábila",
-      "familia": "Asphodelaceae",
+    "amruthaballi": {
+      "nombre_cientifico": "Tinospora cordifolia",
+      "nombre_comun": "Amruthaballi, Guduchi",
+      "familia": "Menispermaceae",
       "usos_tradicionales": [
-        "Cicatrización de heridas y quemaduras",
-        "Tratamiento de problemas digestivos",
-        "Hidratación de la piel",
-        "Alivio de irritaciones cutáneas"
+        "Fortalecimiento del sistema inmunológico",
+        "Tratamiento de fiebre y diabetes",
+        "Purificación de la sangre",
+        "Alivio de problemas digestivos"
       ],
       "propiedades": [
+        "Inmunomodulador",
+        "Antioxidante",
         "Antiinflamatorio",
-        "Cicatrizante",
-        "Hidratante",
-        "Antioxidante"
+        "Hepatoprotector"
       ],
-      "modo_uso": "Gel tópico, jugo oral",
-      "precauciones": "No aplicar en heridas profundas. El consumo oral debe ser moderado."
-    },
-    "manzanilla": {
-      "nombre_cientifico": "Matricaria chamomilla",
-      "nombre_comun": "Manzanilla",
-      "familia": "Asteraceae",
-      "usos_tradicionales": [
-        "Tratamiento de problemas digestivos",
-        "Alivio de ansiedad e insomnio",
-        "Antiinflamatorio ocular",
-        "Calmante de dolores menstruales"
-      ],
-      "propiedades": [
-        "Sedante",
-        "Antiinflamatorio",
-        "Antiespasmódico",
-        "Digestivo"
-      ],
-      "modo_uso": "Infusión, compresas",
-      "precauciones": "Puede causar alergias en personas sensibles a plantas de la familia Asteraceae."
+      "modo_uso": "Decocción de tallo, extracto, polvo",
+      "precauciones": "Consultar médico si está embarazada o en tratamiento con inmunosupresores."
     },
     "menta": {
       "nombre_cientifico": "Mentha piperita",
       "nombre_comun": "Menta, Hierbabuena",
       "familia": "Lamiaceae",
       "usos_tradicionales": [
-        "Alivio de problemas digestivos",
+        "Alivio de problemas digestivos y náuseas",
         "Tratamiento de dolores de cabeza",
         "Descongestionante nasal",
-        "Alivio de náuseas"
+        "Mejora de la respiración"
       ],
       "propiedades": [
         "Antiespasmódico",
@@ -54,143 +35,580 @@
         "Analgésico",
         "Refrescante"
       ],
-      "modo_uso": "Infusión, aceite esencial, inhalación",
+      "modo_uso": "Infusión, aceite esencial, inhalación, uso tópico",
       "precauciones": "El aceite esencial no debe usarse en niños pequeños. Evitar en personas con reflujo gastroesofágico."
     },
-    "lavanda": {
-      "nombre_cientifico": "Lavandula angustifolia",
-      "nombre_comun": "Lavanda, Espliego",
-      "familia": "Lamiaceae",
+    "neem": {
+      "nombre_cientifico": "Azadirachta indica",
+      "nombre_comun": "Neem, Margosa",
+      "familia": "Meliaceae",
       "usos_tradicionales": [
-        "Alivio de ansiedad y estrés",
-        "Mejora del sueño",
-        "Tratamiento de heridas leves",
-        "Alivio de dolores de cabeza"
+        "Tratamiento de problemas de piel",
+        "Control de diabetes",
+        "Purificación de la sangre",
+        "Repelente natural de insectos"
       ],
       "propiedades": [
-        "Sedante",
-        "Ansiolítico",
-        "Antiséptico",
-        "Cicatrizante"
+        "Antibacteriano",
+        "Antifúngico",
+        "Antiparasitario",
+        "Antidiabético"
       ],
-      "modo_uso": "Aceite esencial, infusión, aromaterapia",
-      "precauciones": "El aceite esencial debe diluirse antes de aplicarse en la piel."
+      "modo_uso": "Hojas en decocción, aceite, pasta tópica",
+      "precauciones": "No usar durante el embarazo. El uso excesivo puede causar efectos secundarios."
     },
-    "romero": {
-      "nombre_cientifico": "Rosmarinus officinalis",
-      "nombre_comun": "Romero",
-      "familia": "Lamiaceae",
-      "usos_tradicionales": [
-        "Mejora de la memoria y concentración",
-        "Estimulante circulatorio",
-        "Alivio de dolores musculares",
-        "Tratamiento de problemas digestivos"
-      ],
-      "propiedades": [
-        "Estimulante",
-        "Antioxidante",
-        "Antiinflamatorio",
-        "Carminativo"
-      ],
-      "modo_uso": "Infusión, aceite esencial, condimento",
-      "precauciones": "Evitar en embarazo, epilepsia e hipertensión arterial."
-    },
-    "jengibre": {
-      "nombre_cientifico": "Zingiber officinale",
-      "nombre_comun": "Jengibre",
-      "familia": "Zingiberaceae",
-      "usos_tradicionales": [
-        "Alivio de náuseas y vómitos",
-        "Antiinflamatorio para artritis",
-        "Mejora de la digestión",
-        "Tratamiento de resfriados"
-      ],
-      "propiedades": [
-        "Antiemético",
-        "Antiinflamatorio",
-        "Carminativo",
-        "Termogénico"
-      ],
-      "modo_uso": "Infusión, consumo fresco, polvo",
-      "precauciones": "Puede interactuar con anticoagulantes. Evitar en dosis altas durante el embarazo."
-    },
-    "calendula": {
-      "nombre_cientifico": "Calendula officinalis",
-      "nombre_comun": "Caléndula, Maravilla",
-      "familia": "Asteraceae",
-      "usos_tradicionales": [
-        "Cicatrización de heridas",
-        "Tratamiento de dermatitis",
-        "Alivio de quemaduras leves",
-        "Antiinflamatorio tópico"
-      ],
-      "propiedades": [
-        "Cicatrizante",
-        "Antiinflamatorio",
-        "Antiséptico",
-        "Emoliente"
-      ],
-      "modo_uso": "Ungüento, crema, infusión para compresas",
-      "precauciones": "Puede causar alergias en personas sensibles a plantas de la familia Asteraceae."
-    },
-    "eucalipto": {
-      "nombre_cientifico": "Eucalyptus globulus",
-      "nombre_comun": "Eucalipto",
+    "nerale": {
+      "nombre_cientifico": "Syzygium cumini",
+      "nombre_comun": "Jambul, Jamún Negro",
       "familia": "Myrtaceae",
       "usos_tradicionales": [
-        "Descongestionante respiratorio",
-        "Tratamiento de resfriados y gripes",
-        "Expectorante",
-        "Antiséptico"
+        "Control de diabetes",
+        "Mejora de la digestión",
+        "Fortalecimiento de encías",
+        "Tratamiento de diarrea"
       ],
       "propiedades": [
-        "Expectorante",
-        "Descongestionante",
-        "Antiséptico",
-        "Balsámico"
+        "Antidiabético",
+        "Antioxidante",
+        "Astringente",
+        "Carminativo"
       ],
-      "modo_uso": "Inhalación, aceite esencial, infusión",
-      "precauciones": "No usar en niños menores de 2 años. Puede ser tóxico si se ingiere en grandes cantidades."
+      "modo_uso": "Fruto fresco, semillas en polvo, decocción de hojas",
+      "precauciones": "Puede bajar el azúcar en sangre, monitorear en diabéticos."
     },
-    "equinacea": {
-      "nombre_cientifico": "Echinacea purpurea",
-      "nombre_comun": "Equinácea",
-      "familia": "Asteraceae",
+    "nooni": {
+      "nombre_cientifico": "Morinda citrifolia",
+      "nombre_comun": "Noni, Morinda",
+      "familia": "Rubiaceae",
       "usos_tradicionales": [
         "Estimulación del sistema inmunológico",
-        "Prevención de resfriados",
-        "Cicatrización de heridas",
-        "Tratamiento de infecciones respiratorias"
+        "Alivio de dolor articular",
+        "Mejora de la circulación",
+        "Apoyo en enfermedades crónicas"
       ],
       "propiedades": [
         "Inmunoestimulante",
-        "Antiviral",
-        "Antibacteriano",
-        "Antiinflamatorio"
+        "Analgésico",
+        "Antiinflamatorio",
+        "Antioxidante"
       ],
-      "modo_uso": "Infusión, extracto, cápsulas",
-      "precauciones": "No usar en personas con enfermedades autoinmunes o alergias a la familia Asteraceae."
+      "modo_uso": "Jugo de fruta, extracto, cápsulas",
+      "precauciones": "Puede afectar la función hepática en dosis altas. Consultar médico."
     },
-    "valeriana": {
-      "nombre_cientifico": "Valeriana officinalis",
-      "nombre_comun": "Valeriana",
-      "familia": "Caprifoliaceae",
+    "cebolla": {
+      "nombre_cientifico": "Allium cepa",
+      "nombre_comun": "Cebolla",
+      "familia": "Amaryllidaceae",
       "usos_tradicionales": [
-        "Tratamiento del insomnio",
-        "Alivio de ansiedad",
-        "Sedante natural",
-        "Relajante muscular"
+        "Reducción de colesterol",
+        "Tratamiento de resfriados",
+        "Mejora de la circulación",
+        "Propiedades antiinflamatorias"
       ],
       "propiedades": [
-        "Sedante",
-        "Ansiolítico",
-        "Antiespasmódico",
-        "Hipnótico suave"
+        "Antibacteriano",
+        "Antiinflamatorio",
+        "Antioxidante",
+        "Cardioprotector"
       ],
-      "modo_uso": "Infusión, extracto, cápsulas",
-      "precauciones": "No combinar con alcohol o sedantes. Puede causar somnolencia."
+      "modo_uso": "Consumo fresco, cocido, jugo, cataplasma",
+      "precauciones": "Puede causar irritación digestiva en personas sensibles."
+    },
+    "padri": {
+      "nombre_cientifico": "Stereospermum suaveolens",
+      "nombre_comun": "Padri, Patala",
+      "familia": "Bignoniaceae",
+      "usos_tradicionales": [
+        "Tratamiento de fiebre",
+        "Alivio de problemas respiratorios",
+        "Fortalecimiento del cuerpo",
+        "Tratamiento de infecciones"
+      ],
+      "propiedades": [
+        "Antipirético",
+        "Antiinflamatorio",
+        "Antimicrobiano",
+        "Tónico"
+      ],
+      "modo_uso": "Decocción de corteza, extracto",
+      "precauciones": "Consultar profesional de salud antes de usar."
+    },
+    "espinaca": {
+      "nombre_cientifico": "Spinacia oleracea",
+      "nombre_comun": "Espinaca, Palak",
+      "familia": "Amaranthaceae",
+      "usos_tradicionales": [
+        "Mejora de la salud ocular",
+        "Fortalecimiento de huesos",
+        "Aumento de energía",
+        "Prevención de anemia"
+      ],
+      "propiedades": [
+        "Nutritivo",
+        "Antioxidante",
+        "Antiinflamatorio",
+        "Rico en hierro"
+      ],
+      "modo_uso": "Consumo fresco, cocido, jugo",
+      "precauciones": "Alto contenido de oxalatos, moderar en personas con cálculos renales."
+    },
+    "papaya": {
+      "nombre_cientifico": "Carica papaya",
+      "nombre_comun": "Papaya, Lechosa",
+      "familia": "Caricaceae",
+      "usos_tradicionales": [
+        "Mejora de la digestión",
+        "Aumento de plaquetas",
+        "Tratamiento de parásitos intestinales",
+        "Cicatrización de heridas"
+      ],
+      "propiedades": [
+        "Digestivo",
+        "Antiparasitario",
+        "Antiinflamatorio",
+        "Cicatrizante"
+      ],
+      "modo_uso": "Fruta fresca, jugo, hojas en infusión, látex tópico",
+      "precauciones": "La papaya verde puede causar contracciones uterinas en embarazo."
+    },
+    "parijatha": {
+      "nombre_cientifico": "Nyctanthes arbor-tristis",
+      "nombre_comun": "Jazmín nocturno, Parijat",
+      "familia": "Oleaceae",
+      "usos_tradicionales": [
+        "Tratamiento de artritis",
+        "Alivio de fiebre",
+        "Tratamiento de tos",
+        "Mejora de problemas de piel"
+      ],
+      "propiedades": [
+        "Antiinflamatorio",
+        "Antipirético",
+        "Analgésico",
+        "Antioxidante"
+      ],
+      "modo_uso": "Decocción de hojas, extracto",
+      "precauciones": "Usar bajo supervisión médica."
+    },
+    "guisante": {
+      "nombre_cientifico": "Pisum sativum",
+      "nombre_comun": "Guisante, Arveja",
+      "familia": "Fabaceae",
+      "usos_tradicionales": [
+        "Mejora de la salud cardiovascular",
+        "Control del azúcar en sangre",
+        "Apoyo en pérdida de peso",
+        "Fortalecimiento del sistema inmune"
+      ],
+      "propiedades": [
+        "Nutritivo",
+        "Rico en proteínas",
+        "Antioxidante",
+        "Antiinflamatorio"
+      ],
+      "modo_uso": "Consumo fresco, cocido",
+      "precauciones": "Generalmente seguro. Moderar en caso de problemas digestivos."
+    },
+    "pimiento": {
+      "nombre_cientifico": "Capsicum annuum",
+      "nombre_comun": "Pimiento, Chile dulce",
+      "familia": "Solanaceae",
+      "usos_tradicionales": [
+        "Mejora de la circulación",
+        "Alivio de dolor muscular",
+        "Apoyo digestivo",
+        "Fortalecimiento del sistema inmune"
+      ],
+      "propiedades": [
+        "Analgésico",
+        "Antiinflamatorio",
+        "Rico en vitamina C",
+        "Antioxidante"
+      ],
+      "modo_uso": "Consumo fresco, cocido, extracto",
+      "precauciones": "Puede causar irritación en personas sensibles."
+    },
+    "granada": {
+      "nombre_cientifico": "Punica granatum",
+      "nombre_comun": "Granada",
+      "familia": "Lythraceae",
+      "usos_tradicionales": [
+        "Mejora de la salud cardiovascular",
+        "Propiedades anticancerígenas",
+        "Tratamiento de infecciones",
+        "Mejora de la memoria"
+      ],
+      "propiedades": [
+        "Antioxidante",
+        "Antiinflamatorio",
+        "Cardioprotector",
+        "Antimicrobiano"
+      ],
+      "modo_uso": "Jugo, consumo de arilos, extracto",
+      "precauciones": "Puede interactuar con algunos medicamentos. Consultar médico."
+    },
+    "calabaza": {
+      "nombre_cientifico": "Cucurbita maxima",
+      "nombre_comun": "Calabaza",
+      "familia": "Cucurbitaceae",
+      "usos_tradicionales": [
+        "Mejora de la salud ocular",
+        "Control de peso",
+        "Fortalecimiento del sistema inmune",
+        "Mejora de la salud prostática"
+      ],
+      "propiedades": [
+        "Nutritivo",
+        "Antioxidante",
+        "Antiinflamatorio",
+        "Rico en betacarotenos"
+      ],
+      "modo_uso": "Consumo cocido, semillas, jugo",
+      "precauciones": "Generalmente seguro en consumo alimentario."
+    },
+    "rabano": {
+      "nombre_cientifico": "Raphanus sativus",
+      "nombre_comun": "Rábano",
+      "familia": "Brassicaceae",
+      "usos_tradicionales": [
+        "Mejora de la digestión",
+        "Desintoxicación del hígado",
+        "Tratamiento de ictericia",
+        "Alivio de tos"
+      ],
+      "propiedades": [
+        "Digestivo",
+        "Diurético",
+        "Hepatoprotector",
+        "Expectorante"
+      ],
+      "modo_uso": "Consumo fresco, jugo",
+      "precauciones": "Puede causar gases. Moderar en problemas de tiroides."
+    },
+    "rosa": {
+      "nombre_cientifico": "Rosa damascena",
+      "nombre_comun": "Rosa",
+      "familia": "Rosaceae",
+      "usos_tradicionales": [
+        "Cuidado de la piel",
+        "Alivio de estrés",
+        "Tratamiento de problemas digestivos",
+        "Propiedades antiinflamatorias"
+      ],
+      "propiedades": [
+        "Antiinflamatorio",
+        "Antioxidante",
+        "Astringente",
+        "Calmante"
+      ],
+      "modo_uso": "Agua de rosas, aceite esencial, pétalos en infusión",
+      "precauciones": "Generalmente seguro. Puede causar alergias en personas sensibles."
+    },
+    "sampige": {
+      "nombre_cientifico": "Magnolia champaca",
+      "nombre_comun": "Sampige, Champaca",
+      "familia": "Magnoliaceae",
+      "usos_tradicionales": [
+        "Alivio de fiebre",
+        "Tratamiento de problemas digestivos",
+        "Mejora de la piel",
+        "Propiedades aromáticas terapéuticas"
+      ],
+      "propiedades": [
+        "Antipirético",
+        "Aromático",
+        "Antiinflamatorio",
+        "Antimicrobiano"
+      ],
+      "modo_uso": "Aceite esencial, decocción de flores",
+      "precauciones": "Usar aceite diluido en aplicaciones tópicas."
+    },
+    "zapote": {
+      "nombre_cientifico": "Manilkara zapota",
+      "nombre_comun": "Zapote, Chicozapote",
+      "familia": "Sapotaceae",
+      "usos_tradicionales": [
+        "Tratamiento de diarrea",
+        "Fortalecimiento de dientes y encías",
+        "Mejora de la digestión",
+        "Propiedades astringentes"
+      ],
+      "propiedades": [
+        "Astringente",
+        "Antioxidante",
+        "Nutritivo",
+        "Antimicrobiano"
+      ],
+      "modo_uso": "Consumo de fruta, decocción de corteza",
+      "precauciones": "Generalmente seguro en consumo alimentario."
+    },
+    "seethaashoka": {
+      "nombre_cientifico": "Saraca asoca",
+      "nombre_comun": "Ashoka blanco, Sita Ashoka",
+      "familia": "Fabaceae",
+      "usos_tradicionales": [
+        "Tratamiento de problemas menstruales",
+        "Alivio de dolor uterino",
+        "Mejora de la salud reproductiva femenina",
+        "Propiedades astringentes"
+      ],
+      "propiedades": [
+        "Uterotónico",
+        "Astringente",
+        "Antiinflamatorio",
+        "Analgésico"
+      ],
+      "modo_uso": "Decocción de corteza, extracto",
+      "precauciones": "No usar durante el embarazo. Consultar ginecólogo."
+    },
+    "chirimoya": {
+      "nombre_cientifico": "Annona squamosa",
+      "nombre_comun": "Chirimoya, Anón",
+      "familia": "Annonaceae",
+      "usos_tradicionales": [
+        "Tratamiento de parásitos intestinales",
+        "Mejora de la digestión",
+        "Alivio de disentería",
+        "Propiedades nutritivas"
+      ],
+      "propiedades": [
+        "Antiparasitario",
+        "Nutritivo",
+        "Antioxidante",
+        "Digestivo"
+      ],
+      "modo_uso": "Consumo de fruta, hojas en decocción",
+      "precauciones": "Las semillas son tóxicas, no consumir."
+    },
+    "espinaca_hojas": {
+      "nombre_cientifico": "Spinacia oleracea var.",
+      "nombre_comun": "Espinaca de hojas",
+      "familia": "Amaranthaceae",
+      "usos_tradicionales": [
+        "Mejora de la salud ocular",
+        "Fortalecimiento de huesos",
+        "Prevención de anemia",
+        "Desintoxicación del organismo"
+      ],
+      "propiedades": [
+        "Nutritivo",
+        "Antioxidante",
+        "Rico en hierro",
+        "Antiinflamatorio"
+      ],
+      "modo_uso": "Consumo fresco, jugo verde, cocido",
+      "precauciones": "Alto en oxalatos, moderar en personas con cálculos renales."
+    },
+    "tamarindo": {
+      "nombre_cientifico": "Tamarindus indica",
+      "nombre_comun": "Tamarindo",
+      "familia": "Fabaceae",
+      "usos_tradicionales": [
+        "Mejora de la digestión",
+        "Laxante natural",
+        "Reducción de fiebre",
+        "Tratamiento de problemas hepáticos"
+      ],
+      "propiedades": [
+        "Laxante",
+        "Digestivo",
+        "Antipirético",
+        "Antioxidante"
+      ],
+      "modo_uso": "Pulpa en agua, infusión de hojas",
+      "precauciones": "Puede interactuar con anticoagulantes. Moderar el consumo."
+    },
+    "malanga": {
+      "nombre_cientifico": "Colocasia esculenta",
+      "nombre_comun": "Malanga, Taro",
+      "familia": "Araceae",
+      "usos_tradicionales": [
+        "Mejora de la digestión",
+        "Fortalecimiento del sistema inmune",
+        "Control del azúcar en sangre",
+        "Aumento de energía"
+      ],
+      "propiedades": [
+        "Nutritivo",
+        "Digestivo",
+        "Energético",
+        "Rico en fibra"
+      ],
+      "modo_uso": "Consumo cocido (nunca crudo)",
+      "precauciones": "NUNCA consumir crudo, contiene cristales de oxalato que irritan."
+    },
+    "tecoma": {
+      "nombre_cientifico": "Tecoma stans",
+      "nombre_comun": "Tecoma, Tronadora",
+      "familia": "Bignoniaceae",
+      "usos_tradicionales": [
+        "Control de diabetes",
+        "Mejora de la digestión",
+        "Tratamiento de infecciones",
+        "Propiedades diuréticas"
+      ],
+      "propiedades": [
+        "Antidiabético",
+        "Diurético",
+        "Antimicrobiano",
+        "Digestivo"
+      ],
+      "modo_uso": "Infusión de flores y hojas",
+      "precauciones": "Puede bajar el azúcar en sangre, monitorear en diabéticos."
+    },
+    "thumbe": {
+      "nombre_cientifico": "Leucas aspera",
+      "nombre_comun": "Thumbe, Leucas",
+      "familia": "Lamiaceae",
+      "usos_tradicionales": [
+        "Tratamiento de resfriados y tos",
+        "Alivio de dolor de cabeza",
+        "Tratamiento de picaduras de insectos",
+        "Propiedades antiinflamatorias"
+      ],
+      "propiedades": [
+        "Antipirético",
+        "Analgésico",
+        "Antiinflamatorio",
+        "Antimicrobiano"
+      ],
+      "modo_uso": "Decocción de hojas, jugo fresco, aplicación tópica",
+      "precauciones": "Usar bajo guía profesional."
+    },
+    "tomate": {
+      "nombre_cientifico": "Solanum lycopersicum",
+      "nombre_comun": "Tomate, Jitomate",
+      "familia": "Solanaceae",
+      "usos_tradicionales": [
+        "Mejora de la salud cardiovascular",
+        "Protección contra el cáncer",
+        "Mejora de la salud de la piel",
+        "Fortalecimiento del sistema inmune"
+      ],
+      "propiedades": [
+        "Antioxidante",
+        "Cardioprotector",
+        "Antiinflamatorio",
+        "Rico en licopeno"
+      ],
+      "modo_uso": "Consumo fresco, cocido, jugo",
+      "precauciones": "Puede causar acidez en personas sensibles."
+    },
+    "albahaca_santa": {
+      "nombre_cientifico": "Ocimum sanctum",
+      "nombre_comun": "Albahaca Santa, Tulsi",
+      "familia": "Lamiaceae",
+      "usos_tradicionales": [
+        "Reducción de estrés y ansiedad",
+        "Fortalecimiento del sistema inmune",
+        "Tratamiento de resfriados",
+        "Mejora de la respiración"
+      ],
+      "propiedades": [
+        "Adaptógeno",
+        "Inmunomodulador",
+        "Antiinflamatorio",
+        "Antimicrobiano"
+      ],
+      "modo_uso": "Infusión de hojas, consumo fresco, extracto",
+      "precauciones": "Puede afectar la fertilidad en dosis muy altas. Consultar médico."
+    },
+    "curcuma": {
+      "nombre_cientifico": "Curcuma longa",
+      "nombre_comun": "Cúrcuma, Turmeric",
+      "familia": "Zingiberaceae",
+      "usos_tradicionales": [
+        "Potente antiinflamatorio natural",
+        "Mejora de la digestión",
+        "Apoyo en artritis",
+        "Propiedades anticancerígenas"
+      ],
+      "propiedades": [
+        "Antiinflamatorio",
+        "Antioxidante",
+        "Hepatoprotector",
+        "Antimicrobiano"
+      ],
+      "modo_uso": "Polvo en alimentos, infusión, extracto, leche dorada",
+      "precauciones": "Puede interactuar con anticoagulantes. Evitar en problemas de vesícula."
+    },
+    "ashoka": {
+      "nombre_cientifico": "Saraca indica",
+      "nombre_comun": "Ashoka",
+      "familia": "Fabaceae",
+      "usos_tradicionales": [
+        "Tratamiento de trastornos menstruales",
+        "Alivio de dolores menstruales",
+        "Mejora de la salud uterina",
+        "Propiedades astringentes"
+      ],
+      "propiedades": [
+        "Uterotónico",
+        "Astringente",
+        "Antiinflamatorio",
+        "Hemostático"
+      ],
+      "modo_uso": "Decocción de corteza, extracto",
+      "precauciones": "No usar durante el embarazo. Consultar especialista."
+    },
+    "alcanfor": {
+      "nombre_cientifico": "Cinnamomum camphora",
+      "nombre_comun": "Alcanfor, Camphor",
+      "familia": "Lauraceae",
+      "usos_tradicionales": [
+        "Alivio de dolor muscular",
+        "Descongestionante respiratorio",
+        "Tratamiento de picaduras",
+        "Propiedades antisépticas"
+      ],
+      "propiedades": [
+        "Analgésico",
+        "Descongestionante",
+        "Antiséptico",
+        "Rubefaciente"
+      ],
+      "modo_uso": "Aceite tópico, inhalación (nunca ingerir)",
+      "precauciones": "TÓXICO si se ingiere. Solo uso externo. No usar en niños pequeños."
+    },
+    "kamakasturi": {
+      "nombre_cientifico": "Abelmoschus moschatus",
+      "nombre_comun": "Kamakasturi, Musk Mallow",
+      "familia": "Malvaceae",
+      "usos_tradicionales": [
+        "Tratamiento de picaduras de serpientes",
+        "Alivio de problemas digestivos",
+        "Propiedades aromáticas",
+        "Mejora de la piel"
+      ],
+      "propiedades": [
+        "Antimicrobiano",
+        "Aromático",
+        "Digestivo",
+        "Antiinflamatorio"
+      ],
+      "modo_uso": "Semillas en decocción, aceite",
+      "precauciones": "Usar bajo supervisión profesional."
+    },
+    "kepala": {
+      "nombre_cientifico": "Cocos nucifera (variedad)",
+      "nombre_comun": "Kepala, Coco",
+      "familia": "Arecaceae",
+      "usos_tradicionales": [
+        "Hidratación del cuerpo",
+        "Mejora de la digestión",
+        "Cuidado de piel y cabello",
+        "Propiedades nutritivas"
+      ],
+      "propiedades": [
+        "Nutritivo",
+        "Hidratante",
+        "Antimicrobiano",
+        "Energético"
+      ],
+      "modo_uso": "Agua de coco, aceite, consumo de pulpa",
+      "precauciones": "Generalmente seguro en consumo alimentario."
     }
   },
   "disclaimer": "Esta información es solo para fines educativos. Siempre consulte a un profesional de la salud antes de usar plantas medicinales para tratamiento.",
-  "ultima_actualizacion": "2025-11-12"
+  "ultima_actualizacion": "2025-11-15"
 }
