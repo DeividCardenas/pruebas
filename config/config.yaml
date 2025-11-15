@@ -24,7 +24,7 @@ augmentation:
 model:
   architecture: "mobilenet_v2"  # Opciones: resnet50, mobilenet_v2, efficientnet_b0
   pretrained: true
-  freeze_layers: 0.7  # Congelar el 70% de las capas iniciales
+  freeze_ratio: 0.7  # Congelar el 70% de las capas iniciales
   dropout: 0.5
 
 # Training

@@ -167,41 +167,41 @@
 │           📊 RESULTS SECTION                                │
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │  🌿 ALOE VERA                     [92.5% confianza] │   │
-│  │  Aloe vera (nombre científico)                      │   │
+│  │  Aloe vera (nombre científico)                       │   │
 │  └──────────────────────────────────────────────────────┘   │
 │                                                             │
 │  ┌── Top 3 Predicciones ────────────────────────────────┐   │
-│  │  1. Aloe Vera         ████████████░  92.5%         │   │
-│  │  2. Sábila           ████░░░░░░░░░  35.2%         │   │
-│  │  3. Cactus           ██░░░░░░░░░░░  18.7%         │   │
+│  │  1. Aloe Vera         ████████████░  92.5%           │   │
+│  │  2. Sábila           ████░░░░░░░░░  35.2%            │   │
+│  │  3. Cactus           ██░░░░░░░░░░░  18.7%            │   │
 │  └──────────────────────────────────────────────────────┘   │
 │                                                             │
 │  ┌── Información de la Planta ──────────────────────────┐   │
 │  │  🌱 Familia: Asphodelaceae                          │   │
 │  │                                                      │   │
-│  │  💊 Usos Tradicionales:                            │   │
-│  │  ✓ Cicatrización de heridas                        │   │
-│  │  ✓ Tratamiento de quemaduras                       │   │
-│  │  ✓ Hidratación de la piel                          │   │
+│  │  💊 Usos Tradicionales:                             │   │
+│  │  ✓ Cicatrización de heridas                         │   │
+│  │  ✓ Tratamiento de quemaduras                        │   │
+│  │  ✓ Hidratación de la piel                           │   │
 │  │                                                      │   │
-│  │  ✨ Propiedades:                                    │   │
-│  │  [Antiinflamatorio] [Cicatrizante] [Hidratante]    │   │
+│  │  ✨ Propiedades:                                     │   │
+│  │  [Antiinflamatorio] [Cicatrizante] [Hidratante]      │   │
 │  │                                                      │   │
-│  │  📋 Modo de Uso: Gel tópico, jugo oral            │   │
+│  │  📋 Modo de Uso: Gel tópico, jugo oral              │   │
 │  │                                                      │   │
-│  │  ⚠️ Precauciones:                                  │   │
-│  │  No aplicar en heridas profundas...                │   │
+│  │  ⚠️ Precauciones:                                    │   │
+│  │  No aplicar en heridas profundas...                  │   │
 │  └──────────────────────────────────────────────────────┘   │
 │                                                             │
-│  ⚠️ Disclaimer: Información solo educativa. Consulte      │
-│     profesionales de salud.                                │
+│  ⚠️ Disclaimer: Información solo educativa. Consulte       │
+│     profesionales de salud.                                 │
 │                                                             │
-│            [Analizar Otra Planta]                          │
+│            [Analizar Otra Planta]                           │
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
 │                    📄 FOOTER                                │
-│  Proyecto de Visión Computacional                          │
+│  Proyecto de Inteligencia Artificial                        │
 │  PyTorch + Transfer Learning + Flask                        │
 └─────────────────────────────────────────────────────────────┘
 ```

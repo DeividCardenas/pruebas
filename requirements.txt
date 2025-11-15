@@ -1,15 +1,15 @@
 # Core Dependencies
 torch==2.9.1
-torchvision==0.20.1
-numpy==1.24.3
-opencv-python==4.8.1.78
-Pillow==10.1.0
+torchvision
+numpy
+opencv-python
+Pillow
 
 # Data Handling
-pandas==2.1.3
-scikit-learn==1.3.2
-matplotlib==3.8.2
-seaborn==0.13.0
+pandas
+scikit-learn
+matplotlib
+seaborn
 
 # Web Framework
 Flask==3.0.0
@@ -24,7 +24,3 @@ requests==2.31.0
 jupyter==1.0.0
 ipykernel==6.27.0
 notebook==7.0.6
-
-# Opcional: Para descarga de datasets
-gdown==4.7.1
-kaggle==1.5.16
