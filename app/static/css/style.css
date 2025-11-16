@@ -1058,26 +1058,43 @@ body::before {
     }
 
     .chart-container {
-        height: 300px;
+        height: 280px;
+        margin-top: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
     .container {
-        padding: 15px;
+        padding: 10px;
     }
 
     .header {
-        padding: 25px;
+        padding: 20px;
+        border-radius: 15px;
     }
 
     .header h1 {
-        font-size: 1.8em;
+        font-size: 1.5em;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    .subtitle {
+        font-size: 0.9em;
     }
 
     .logo-section {
         flex-direction: column;
         text-align: center;
+        gap: 15px;
     }
 
     .logo-icon {
@@ -1086,47 +1103,252 @@ body::before {
         font-size: 2em;
     }
 
+    .stats-mini {
+        justify-content: center;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .stat-item {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+
     .main-content {
-        padding: 30px 20px;
+        padding: 25px 15px;
+        border-radius: 15px;
     }
 
     .upload-box {
-        padding: 50px 20px;
+        padding: 40px 20px;
+        border-radius: 15px;
     }
 
-    .stats-mini {
-        justify-content: center;
+    .upload-icon {
+        font-size: 3.5em;
+    }
+
+    .upload-box h2 {
+        font-size: 1.3em;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 12px 25px;
+        font-size: 0.95em;
+    }
+
+    .btn-large {
+        padding: 14px 30px;
+        font-size: 1em;
+    }
+
+    .preview-container img {
+        max-height: 300px;
+    }
+
+    .preview-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .preview-actions button {
+        width: 100%;
+    }
+
+    .results-header h2 {
+        font-size: 1.5em;
+    }
+
+    .success-icon {
+        font-size: 3em;
+    }
+
+    .result-card {
+        padding: 20px;
+        border-radius: 15px;
     }
 
     .result-card h3 {
-        font-size: 1.6em;
+        font-size: 1.4em;
     }
 
     .main-result {
         flex-direction: column;
         text-align: center;
+        gap: 15px;
+    }
+
+    .result-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2em;
     }
 
     .result-header {
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
 
     .confidence-badge {
         margin-top: 10px;
+        font-size: 1.1em;
+        padding: 12px 20px;
+    }
+
+    .scientific-name {
+        font-size: 1em;
+    }
+
+    .predictions-card {
+        padding: 20px;
+    }
+
+    .predictions-card h3 {
+        font-size: 1.2em;
+    }
+
+    .predictions-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .chart-container {
+        height: 250px;
+        padding: 15px;
+    }
+
+    .prediction-item {
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .prediction-name {
+        font-size: 0.95em;
+    }
+
+    .prediction-prob {
+        font-size: 1em;
+        align-self: flex-end;
+    }
+
+    .info-card {
+        padding: 20px;
+    }
+
+    .info-header h3 {
+        font-size: 1.3em;
     }
 
     .info-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .info-section {
+        padding: 15px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .info-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+
+    .info-content h4 {
+        font-size: 1em;
+    }
+
+    .properties-tags {
+        gap: 8px;
+    }
+
+    .property-tag {
+        font-size: 0.85em;
+        padding: 8px 15px;
+    }
+
+    .disclaimer {
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .disclaimer i {
+        font-size: 1.5em;
+    }
+
+    .error-card {
+        padding: 30px 20px;
+    }
+
+    .error-icon {
+        font-size: 3em;
+    }
+
+    .footer {
+        padding: 30px 15px;
     }
 
     .footer-content {
-        padding: 20px;
+        gap: 20px;
+    }
+
+    .footer-section h4 {
+        font-size: 1.1em;
     }
 
     .tech-badges {
-        flex-direction: column;
-        align-items: center;
+        gap: 8px;
+    }
+
+    .tech-badge {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+
+    .footer p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.3em;
+    }
+
+    .subtitle {
+        font-size: 0.85em;
+    }
+
+    .stat-item {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+
+    .upload-box h2 {
+        font-size: 1.1em;
+    }
+
+    .upload-icon {
+        font-size: 3em;
+    }
+
+    .result-card h3 {
+        font-size: 1.2em;
+    }
+
+    .chart-container {
+        height: 220px;
+    }
+
+    .prediction-name {
+        font-size: 0.9em;
     }
 }
 

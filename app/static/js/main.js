@@ -22,7 +22,7 @@ fileInput.addEventListener('change', handleFileSelect);
 changeImageBtn.addEventListener('click', resetUpload);
 analyzeBtn.addEventListener('click', analyzeImage);
 tryAgainBtn.addEventListener('click', resetUpload);
-retryBtn.addEventListener('click', resetUpload');
+retryBtn.addEventListener('click', resetUpload);
 
 // Drag and drop
 uploadBox.addEventListener('dragover', (e) => {
@@ -44,8 +44,10 @@ uploadBox.addEventListener('drop', (e) => {
     }
 });
 
+// Click en el uploadBox (excepto en el botón)
 uploadBox.addEventListener('click', (e) => {
-    if (e.target !== selectBtn && !selectBtn.contains(e.target)) {
+    // Solo abrir el selector de archivos si no se hizo click en el botón
+    if (!selectBtn.contains(e.target)) {
         fileInput.click();
     }
 });
@@ -74,19 +76,12 @@ function handleFile(file) {
 
     selectedFile = file;
 
-    // Mostrar preview con animación
+    // Mostrar preview
     const reader = new FileReader();
     reader.onload = (e) => {
         previewImage.src = e.target.result;
         uploadBox.style.display = 'none';
         previewSection.style.display = 'block';
-
-        // Agregar efecto de fade in
-        previewSection.style.opacity = '0';
-        setTimeout(() => {
-            previewSection.style.transition = 'opacity 0.5s ease';
-            previewSection.style.opacity = '1';
-        }, 10);
     };
     reader.readAsDataURL(file);
 }
@@ -113,7 +108,7 @@ async function analyzeImage() {
         return;
     }
 
-    // Mostrar loading con animación
+    // Mostrar loading
     previewSection.style.display = 'none';
     loading.style.display = 'block';
     resultsSection.style.display = 'none';
@@ -148,13 +143,8 @@ async function analyzeImage() {
 }
 
 function displayResults(data) {
-    // Mostrar sección de resultados con animación
+    // Mostrar sección de resultados
     resultsSection.style.display = 'block';
-    resultsSection.style.opacity = '0';
-    setTimeout(() => {
-        resultsSection.style.transition = 'opacity 0.6s ease';
-        resultsSection.style.opacity = '1';
-    }, 10);
 
     // Nombre de la planta (usar display_name si está disponible)
     const plantName = data.display_name || formatPlantName(data.predicted_class);
@@ -184,7 +174,7 @@ function displayResults(data) {
         document.getElementById('plantInfoCard').style.display = 'none';
     }
 
-    // Scroll suave a resultados
+    // Scroll a resultados
     setTimeout(() => {
         resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 200);
@@ -197,10 +187,6 @@ function displayTopPredictions(predictions) {
     predictions.forEach((pred, index) => {
         const item = document.createElement('div');
         item.className = 'prediction-item';
-
-        // Animación escalonada
-        item.style.opacity = '0';
-        item.style.transform = 'translateX(-20px)';
 
         const name = document.createElement('span');
         name.className = 'prediction-name';
@@ -232,13 +218,6 @@ function displayTopPredictions(predictions) {
         item.appendChild(prob);
 
         container.appendChild(item);
-
-        // Animar entrada
-        setTimeout(() => {
-            item.style.transition = 'all 0.5s ease';
-            item.style.opacity = '1';
-            item.style.transform = 'translateX(0)';
-        }, 100 + (index * 100));
     });
 }
 
@@ -248,7 +227,8 @@ function createPredictionsChart(predictions) {
         predictionsChart.destroy();
     }
 
-    const ctx = document.getElementById('predictionsChart').getContext('2d');
+    const ctx = document.getElementById('predictionsChart');
+    if (!ctx) return;
 
     // Preparar datos
     const labels = predictions.map((pred, index) => {
@@ -319,7 +299,7 @@ function createPredictionsChart(predictions) {
             animation: {
                 animateScale: true,
                 animateRotate: true,
-                duration: 1500,
+                duration: 1000,
                 easing: 'easeInOutQuart'
             }
         }
@@ -329,15 +309,6 @@ function createPredictionsChart(predictions) {
 function displayPlantInfo(info) {
     const infoCard = document.getElementById('plantInfoCard');
     infoCard.style.display = 'block';
-
-    // Animación de entrada
-    infoCard.style.opacity = '0';
-    infoCard.style.transform = 'translateY(20px)';
-    setTimeout(() => {
-        infoCard.style.transition = 'all 0.6s ease';
-        infoCard.style.opacity = '1';
-        infoCard.style.transform = 'translateY(0)';
-    }, 300);
 
     // Nombre científico
     if (info.nombre_cientifico) {
@@ -353,19 +324,10 @@ function displayPlantInfo(info) {
     if (info.usos_tradicionales && info.usos_tradicionales.length > 0) {
         const usesList = document.getElementById('traditionalUses');
         usesList.innerHTML = '';
-        info.usos_tradicionales.forEach((use, index) => {
+        info.usos_tradicionales.forEach((use) => {
             const li = document.createElement('li');
             li.textContent = use;
-            li.style.opacity = '0';
-            li.style.transform = 'translateX(-10px)';
             usesList.appendChild(li);
-
-            // Animación escalonada
-            setTimeout(() => {
-                li.style.transition = 'all 0.4s ease';
-                li.style.opacity = '1';
-                li.style.transform = 'translateX(0)';
-            }, 400 + (index * 80));
         });
     }
 
@@ -373,20 +335,11 @@ function displayPlantInfo(info) {
     if (info.propiedades && info.propiedades.length > 0) {
         const propsContainer = document.getElementById('properties');
         propsContainer.innerHTML = '';
-        info.propiedades.forEach((prop, index) => {
+        info.propiedades.forEach((prop) => {
             const tag = document.createElement('span');
             tag.className = 'property-tag';
             tag.textContent = prop;
-            tag.style.opacity = '0';
-            tag.style.transform = 'scale(0.8)';
             propsContainer.appendChild(tag);
-
-            // Animación escalonada
-            setTimeout(() => {
-                tag.style.transition = 'all 0.4s ease';
-                tag.style.opacity = '1';
-                tag.style.transform = 'scale(1)';
-            }, 400 + (index * 100));
         });
     }
 
@@ -414,152 +367,12 @@ function showError(message) {
     resultsSection.style.display = 'none';
     document.getElementById('errorMessage').textContent = message;
 
-    // Animación de entrada
-    errorSection.style.opacity = '0';
-    setTimeout(() => {
-        errorSection.style.transition = 'opacity 0.5s ease';
-        errorSection.style.opacity = '1';
-    }, 10);
-
     // Scroll al error
-    errorSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => {
+        errorSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
 }
-
-// Añadir efecto de partículas de fondo (opcional)
-function createFloatingLeaves() {
-    const body = document.body;
-    const leafIcons = ['🍃', '🌿', '🍀', '🌱'];
-
-    for (let i = 0; i < 15; i++) {
-        const leaf = document.createElement('div');
-        leaf.textContent = leafIcons[Math.floor(Math.random() * leafIcons.length)];
-        leaf.style.position = 'fixed';
-        leaf.style.fontSize = `${Math.random() * 20 + 15}px`;
-        leaf.style.left = `${Math.random() * 100}%`;
-        leaf.style.top = `-50px`;
-        leaf.style.opacity = '0.15';
-        leaf.style.pointerEvents = 'none';
-        leaf.style.zIndex = '0';
-        leaf.style.animation = `fall ${Math.random() * 10 + 10}s linear infinite`;
-        leaf.style.animationDelay = `${Math.random() * 5}s`;
-
-        body.appendChild(leaf);
-    }
-}
-
-// Añadir animación de caída
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fall {
-        0% {
-            transform: translateY(-50px) rotate(0deg);
-            opacity: 0.15;
-        }
-        50% {
-            opacity: 0.2;
-        }
-        100% {
-            transform: translateY(100vh) rotate(360deg);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
 
 // Inicialización
 console.log('🌿 Clasificador de Plantas Medicinales cargado');
 console.log('📊 Chart.js integrado');
-
-// Crear hojas flotantes (opcional, descomentar si se desea)
-// createFloatingLeaves();
-
-// Efecto de escritura en el header (opcional)
-function typeWriter(element, text, speed = 50) {
-    let i = 0;
-    element.textContent = '';
-
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-
-    type();
-}
-
-// Añadir efectos de hover a los botones
-document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-    button.addEventListener('mouseenter', function(e) {
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const ripple = document.createElement('span');
-        ripple.style.cssText = `
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            pointer-events: none;
-            transform: scale(0);
-            animation: ripple 0.6s ease-out;
-            left: ${x}px;
-            top: ${y}px;
-        `;
-
-        this.appendChild(ripple);
-
-        setTimeout(() => ripple.remove(), 600);
-    });
-});
-
-// Añadir animación de ripple
-const rippleStyle = document.createElement('style');
-rippleStyle.textContent = `
-    @keyframes ripple {
-        to {
-            transform: scale(20);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(rippleStyle);
-
-// Contador de animación para las estadísticas
-function animateCounter(element, target, duration = 1000) {
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        element.textContent = Math.floor(current);
-    }, 16);
-}
-
-// Observador de intersección para animaciones al hacer scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observar elementos con clase 'fade-in-on-scroll'
-document.querySelectorAll('.result-card, .predictions-card, .info-card').forEach(el => {
-    observer.observe(el);
-});
