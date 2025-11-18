@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Plantas Medicinales 🌿</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark-theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="{{ url_for('home') }}" class="navbar-logo">
+                <div class="navbar-logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="navbar-logo-text">
+                    <span class="navbar-logo-title">Plantas Medicinales IA</span>
+                    <span class="navbar-logo-subtitle">Deep Learning Classification</span>
+                </div>
+            </a>
+
+            <div class="navbar-menu">
+                <ul class="navbar-nav">
+                    <li class="navbar-nav-item">
+                        <a href="{{ url_for('home') }}" class="navbar-nav-link">
+                            <i class="fas fa-home navbar-nav-icon"></i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li class="navbar-nav-item">
+                        <a href="{{ url_for('classifier') }}" class="navbar-nav-link">
+                            <i class="fas fa-camera navbar-nav-icon"></i>
+                            <span>Clasificador</span>
+                        </a>
+                    </li>
+                    <li class="navbar-nav-item">
+                        <a href="{{ url_for('gallery') }}" class="navbar-nav-link">
+                            <i class="fas fa-th navbar-nav-icon"></i>
+                            <span>Galería</span>
+                        </a>
+                    </li>
+                </ul>
+                <a href="{{ url_for('classifier') }}" class="navbar-cta">
+                    <i class="fas fa-rocket"></i>
+                    <span>Comenzar</span>
+                </a>
+            </div>
+
+            <button class="navbar-toggle">
+                <span class="navbar-toggle-line"></span>
+                <span class="navbar-toggle-line"></span>
+                <span class="navbar-toggle-line"></span>
+            </button>
+        </div>
+    </nav>
+    <div class="navbar-overlay"></div>
+
+    <div class="gallery-container">
+        <!-- Header -->
+        <header class="gallery-header">
+            <div class="header-content">
+                <h1>Galería de Plantas Medicinales</h1>
+                <p class="header-subtitle">
+                    Explora nuestra colección de {{ num_plants }} plantas medicinales con información detallada
+                </p>
+            </div>
+            <div class="search-box glass-card">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar plantas...">
+            </div>
+        </header>
+
+        <!-- Stats -->
+        <div class="gallery-stats">
+            <div class="stat-card glass-card">
+                <div class="stat-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>{{ num_plants }}</h3>
+                    <p>Especies Disponibles</p>
+                </div>
+            </div>
+            <div class="stat-card glass-card">
+                <div class="stat-icon">
+                    <i class="fas fa-dna"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>{{ num_families }}</h3>
+                    <p>Familias Botánicas</p>
+                </div>
+            </div>
+            <div class="stat-card glass-card">
+                <div class="stat-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>IA Avanzada</h3>
+                    <p>MobileNetV2</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plants Grid -->
+        <div class="plants-grid" id="plantsGrid">
+            {% for plant_key, plant_info in plants.items() %}
+            <div class="plant-card glass-card" data-plant-name="{{ plant_info.nombre_comun|lower }}">
+                <div class="plant-card-header">
+                    <div class="plant-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="plant-badge">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                </div>
+                <div class="plant-card-body">
+                    <h3>{{ plant_info.nombre_comun.split(',')[0] }}</h3>
+                    <p class="plant-scientific">{{ plant_info.nombre_cientifico }}</p>
+                    <div class="plant-family">
+                        <i class="fas fa-dna"></i>
+                        <span>{{ plant_info.familia }}</span>
+                    </div>
+                </div>
+                <div class="plant-card-footer">
+                    <button class="btn btn-secondary btn-details" onclick="showPlantDetails('{{ plant_key }}')">
+                        <i class="fas fa-info-circle"></i>
+                        Ver Detalles
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- No Results -->
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>No se encontraron resultados</h3>
+            <p>Intenta buscar con otros términos</p>
+        </div>
+    </div>
+
+    <!-- Modal de Detalles -->
+    <div class="modal-overlay" id="modalOverlay" style="display: none;">
+        <div class="modal glass-card">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-content" id="modalContent">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Datos de plantas para el modal
+        const plantsData = {{ plants_json|safe }};
+    </script>
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+</body>
+</html>

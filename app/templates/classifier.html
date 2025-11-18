@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificador de Plantas Medicinales 🌿</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark-theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/classifier.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="{{ url_for('home') }}" class="navbar-logo">
+                <div class="navbar-logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="navbar-logo-text">
+                    <span class="navbar-logo-title">Plantas Medicinales IA</span>
+                    <span class="navbar-logo-subtitle">Deep Learning Classification</span>
+                </div>
+            </a>
+
+            <div class="navbar-menu">
+                <ul class="navbar-nav">
+                    <li class="navbar-nav-item">
+                        <a href="{{ url_for('home') }}" class="navbar-nav-link">
+                            <i class="fas fa-home navbar-nav-icon"></i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li class="navbar-nav-item">
+                        <a href="{{ url_for('classifier') }}" class="navbar-nav-link">
+                            <i class="fas fa-camera navbar-nav-icon"></i>
+                            <span>Clasificador</span>
+                        </a>
+                    </li>
+                    <li class="navbar-nav-item">
+                        <a href="{{ url_for('gallery') }}" class="navbar-nav-link">
+                            <i class="fas fa-th navbar-nav-icon"></i>
+                            <span>Galería</span>
+                        </a>
+                    </li>
+                </ul>
+                <a href="{{ url_for('classifier') }}" class="navbar-cta">
+                    <i class="fas fa-rocket"></i>
+                    <span>Comenzar</span>
+                </a>
+            </div>
+
+            <button class="navbar-toggle">
+                <span class="navbar-toggle-line"></span>
+                <span class="navbar-toggle-line"></span>
+                <span class="navbar-toggle-line"></span>
+            </button>
+        </div>
+    </nav>
+    <div class="navbar-overlay"></div>
+
+    <div class="classifier-container">
+        <!-- Header -->
+        <header class="classifier-header glass-card">
+            <div class="header-content">
+                <div class="header-info">
+                    <div class="header-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div>
+                        <h1>Clasificador de Plantas Medicinales</h1>
+                        <p class="header-subtitle">
+                            Identifica plantas con precisión usando Deep Learning
+                        </p>
+                    </div>
+                </div>
+                {% if model_loaded %}
+                <div class="badge badge-success">
+                    <i class="fas fa-check-circle"></i>
+                    Modelo activo ({{ num_classes }} plantas)
+                </div>
+                {% else %}
+                <div class="badge badge-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Modelo no disponible
+                </div>
+                {% endif %}
+            </div>
+            <div class="header-stats">
+                <div class="stat-badge">
+                    <i class="fas fa-brain"></i>
+                    <span>MobileNetV2</span>
+                </div>
+                <div class="stat-badge">
+                    <i class="fas fa-seedling"></i>
+                    <span>{{ num_classes }} Especies</span>
+                </div>
+                <div class="stat-badge">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Transfer Learning</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="classifier-main">
+            <!-- Upload Section -->
+            <section class="upload-section" id="uploadSection">
+                <div class="upload-box glass-card" id="uploadBox">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h2>Sube una imagen de una planta</h2>
+                    <p>Arrastra y suelta una imagen aquí o haz clic para seleccionar</p>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    <button class="btn btn-primary btn-large" id="selectBtn">
+                        <i class="fas fa-image"></i>
+                        Seleccionar Imagen
+                    </button>
+                    <p class="file-info">
+                        <i class="fas fa-info-circle"></i>
+                        Formatos soportados: JPG, PNG (máx. 16MB)
+                    </p>
+                </div>
+
+                <!-- Preview -->
+                <div class="preview-section glass-card" id="previewSection" style="display: none;">
+                    <div class="preview-container">
+                        <img id="previewImage" src="" alt="Preview">
+                        <div class="image-overlay">
+                            <i class="fas fa-check-circle"></i>
+                            Imagen lista para analizar
+                        </div>
+                    </div>
+                    <div class="preview-actions">
+                        <button class="btn btn-secondary" id="changeImageBtn">
+                            <i class="fas fa-sync-alt"></i>
+                            Cambiar Imagen
+                        </button>
+                        <button class="btn btn-primary btn-large" id="analyzeBtn">
+                            <i class="fas fa-search"></i>
+                            Analizar Planta
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading -->
+            <div class="loading" id="loading" style="display: none;">
+                <div class="loading-animation">
+                    <div class="spinner"></div>
+                    <div class="loading-plant">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                </div>
+                <h3>Analizando imagen...</h3>
+                <p>Nuestro modelo de IA está identificando la planta</p>
+                <div class="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <i class="fas fa-check-circle success-icon"></i>
+                    <h2>Resultados del Análisis</h2>
+                </div>
+
+                <!-- Main Result -->
+                <div class="result-card glass-card">
+                    <div class="result-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-header">
+                            <div>
+                                <h3 id="plantName">-</h3>
+                                <p class="scientific-name" id="scientificName">-</p>
+                            </div>
+                            <div class="confidence-badge" id="confidenceBadge">
+                                <i class="fas fa-percentage"></i>
+                                <span>-</span>
+                            </div>
+                        </div>
+                        <div class="confidence-meter">
+                            <div class="confidence-fill" id="confidenceFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Predictions with Chart -->
+                <div class="predictions-card glass-card">
+                    <h3>
+                        <i class="fas fa-chart-bar"></i>
+                        Top 3 Predicciones
+                    </h3>
+                    <div class="predictions-content">
+                        <div class="predictions-list" id="topPredictions"></div>
+                        <div class="chart-container">
+                            <canvas id="predictionsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plant Information -->
+                <div class="info-card glass-card" id="plantInfoCard" style="display: none;">
+                    <div class="info-header">
+                        <i class="fas fa-info-circle"></i>
+                        <h3>Información de la Planta</h3>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-section">
+                            <div class="info-icon">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Familia Botánica</h4>
+                                <p id="plantFamily">-</p>
+                            </div>
+                        </div>
+
+                        <div class="info-section full-width">
+                            <div class="info-icon">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Usos Tradicionales</h4>
+                                <ul id="traditionalUses"></ul>
+                            </div>
+                        </div>
+
+                        <div class="info-section full-width">
+                            <div class="info-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Propiedades</h4>
+                                <div class="properties-tags" id="properties"></div>
+                            </div>
+                        </div>
+
+                        <div class="info-section full-width">
+                            <div class="info-icon">
+                                <i class="fas fa-book-medical"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Modo de Uso</h4>
+                                <p id="usageMode">-</p>
+                            </div>
+                        </div>
+
+                        <div class="info-section warning-box full-width">
+                            <div class="info-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Precauciones</h4>
+                                <p id="precautions">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Disclaimer -->
+                <div class="disclaimer glass-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <strong>Aviso importante:</strong> Esta información es solo para fines educativos.
+                        Siempre consulte a un profesional de la salud antes de usar plantas medicinales para tratamiento.
+                    </div>
+                </div>
+
+                <!-- Try Again Button -->
+                <button class="btn btn-primary btn-large" id="tryAgainBtn">
+                    <i class="fas fa-redo"></i>
+                    Analizar Otra Planta
+                </button>
+            </section>
+
+            <!-- Error Section -->
+            <section class="error-section" id="errorSection" style="display: none;">
+                <div class="error-card glass-card">
+                    <i class="fas fa-times-circle error-icon"></i>
+                    <h3>Error</h3>
+                    <p id="errorMessage"></p>
+                    <button class="btn btn-primary" id="retryBtn">
+                        <i class="fas fa-redo"></i>
+                        Intentar de Nuevo
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/classifier.js') }}"></script>
+</body>
+</html>
