@@ -42,7 +42,7 @@ El proyecto fue desarrollado como trabajo final del curso de Inteligencia Artifi
 
 ### Funcionalidades
 
-- 🌱 Clasificación de hasta 30+ especies de plantas medicinales
+- 🌱 Clasificación de 99 especies de plantas medicinales
 - 📊 Visualización de probabilidades y top-3 predicciones
 - 💊 Base de conocimientos con usos tradicionales y precauciones
 - 🌐 Interfaz web profesional con Flask
@@ -162,8 +162,12 @@ Abre tu navegador en `http://localhost:5000` y prueba el clasificador.
 ### 1. Recolección de Datos
 
 - **Fuente**: Kaggle - Indian Medicinal Leaves Dataset
-- **Clases**: 30+ especies de plantas medicinales
-- **División**: 70% Train, 15% Validation, 15% Test
+- **Clases**: 99 especies de plantas medicinales
+- **Total de imágenes**: 19,546 imágenes
+- **División**:
+  - Train: 13,339 imágenes (68.2%)
+  - Validation: 3,025 imágenes (15.5%)
+  - Test: 3,182 imágenes (16.3%)
 
 ### 2. Preprocesamiento
 
@@ -205,6 +209,32 @@ Abre tu navegador en `http://localhost:5000` y prueba el clasificador.
 - **Métricas**: Accuracy, Precision, Recall, F1-Score
 - **Visualización**: Matriz de confusión, curvas de aprendizaje
 - **Análisis**: Errores por clase, distribución de confianza
+
+## 📊 Resultados
+
+El modelo entrenado logró los siguientes resultados:
+
+### Métricas Principales
+
+| Métrica | Train | Validation | Observación |
+|---------|-------|------------|-------------|
+| **Accuracy** | 99.54% | **98.51%** | Excelente generalización |
+| **Loss** | 0.0178 | 0.0530 | Bajo overfitting |
+
+### Detalles del Entrenamiento
+
+- **Épocas entrenadas**: 47 (con early stopping)
+- **Arquitectura**: MobileNetV2
+- **Parámetros totales**: 2,350,691
+- **Parámetros entrenables**: 1,870,563 (79.6%)
+- **Tiempo de entrenamiento**: ~3 horas en CPU
+
+### Características del Modelo
+
+- ✅ Alta precisión (98.51% en validación)
+- ✅ Bajo overfitting (diferencia train-val: ~1%)
+- ✅ Eficiente para CPU (~45ms por imagen)
+- ✅ 99 clases de plantas medicinales
 
 ## 🛠️ Tecnologías Utilizadas
 
