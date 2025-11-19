@@ -1305,6 +1305,479 @@
       ],
       "modo_uso": "Aceite esencial, pasta tópica, incienso",
       "precauciones": "Usar aceite diluido. Puede causar alergias."
+    },
+    "arive_dantu": {
+      "nombre_cientifico": "Amaranthus tricolor",
+      "nombre_comun": "Amaranto Rojo, Arive Dantu",
+      "familia": "Amaranthaceae",
+      "usos_tradicionales": [
+        "Tratamiento de anemia",
+        "Mejora de la digestión",
+        "Fortalecimiento del cabello",
+        "Control de diarrea"
+      ],
+      "propiedades": [
+        "Rico en hierro",
+        "Nutritivo",
+        "Astringente",
+        "Antioxidante"
+      ],
+      "modo_uso": "Consumo de hojas cocidas, jugo fresco",
+      "precauciones": "Generalmente seguro. Cocinar antes de consumir."
+    },
+    "astma_weed": {
+      "nombre_cientifico": "Euphorbia hirta",
+      "nombre_comun": "Hierba del Asma, Golondrina",
+      "familia": "Euphorbiaceae",
+      "usos_tradicionales": [
+        "Tratamiento del asma",
+        "Alivio de problemas respiratorios",
+        "Tratamiento de diarrea",
+        "Propiedades antimicrobianas"
+      ],
+      "propiedades": [
+        "Broncodilatador",
+        "Antiasmático",
+        "Astringente",
+        "Antimicrobiano"
+      ],
+      "modo_uso": "Decocción de planta entera, extracto",
+      "precauciones": "Contiene látex que puede irritar. Usar bajo supervisión."
+    },
+    "badipala": {
+      "nombre_cientifico": "Cyclea peltata",
+      "nombre_comun": "Badipala, Patha",
+      "familia": "Menispermaceae",
+      "usos_tradicionales": [
+        "Tratamiento de fiebre",
+        "Propiedades antiinflamatorias",
+        "Mejora de problemas digestivos",
+        "Tratamiento de mordeduras de serpiente"
+      ],
+      "propiedades": [
+        "Antipirético",
+        "Antiinflamatorio",
+        "Antitóxico",
+        "Digestivo"
+      ],
+      "modo_uso": "Decocción de raíz, extracto",
+      "precauciones": "Usar bajo supervisión de profesional de salud."
+    },
+    "balloon_vine": {
+      "nombre_cientifico": "Cardiospermum halicacabum",
+      "nombre_comun": "Globo Trepador, Farolitos",
+      "familia": "Sapindaceae",
+      "usos_tradicionales": [
+        "Tratamiento de reumatismo",
+        "Alivio de problemas de piel",
+        "Propiedades diuréticas",
+        "Tratamiento de tos"
+      ],
+      "propiedades": [
+        "Antiinflamatorio",
+        "Diurético",
+        "Antirreumático",
+        "Emoliente"
+      ],
+      "modo_uso": "Decocción de hojas, aceite tópico",
+      "precauciones": "Evitar durante el embarazo."
+    },
+    "caricature": {
+      "nombre_cientifico": "Graptophyllum pictum",
+      "nombre_comun": "Caricature Plant",
+      "familia": "Acanthaceae",
+      "usos_tradicionales": [
+        "Tratamiento de hemorroides",
+        "Alivio de estreñimiento",
+        "Propiedades laxantes",
+        "Mejora de circulación"
+      ],
+      "propiedades": [
+        "Laxante",
+        "Antihemorroidal",
+        "Antiinflamatorio",
+        "Venotónico"
+      ],
+      "modo_uso": "Decocción de hojas",
+      "precauciones": "Moderar el uso. No usar durante embarazo."
+    },
+    "chakte": {
+      "nombre_cientifico": "Cassia tora",
+      "nombre_comun": "Chakte, Senna Salvaje",
+      "familia": "Fabaceae",
+      "usos_tradicionales": [
+        "Tratamiento de problemas de piel",
+        "Mejora de visión",
+        "Propiedades laxantes",
+        "Tratamiento de tiña"
+      ],
+      "propiedades": [
+        "Laxante",
+        "Antifúngico",
+        "Oftálmico",
+        "Dermatológico"
+      ],
+      "modo_uso": "Semillas en decocción, pasta tópica",
+      "precauciones": "No usar en exceso. Puede causar diarrea."
+    },
+    "citron_lime": {
+      "nombre_cientifico": "Citrus medica",
+      "nombre_comun": "Cidra, Citron",
+      "familia": "Rutaceae",
+      "usos_tradicionales": [
+        "Mejora de digestión",
+        "Tratamiento de náuseas",
+        "Propiedades antisépticas",
+        "Fortalecimiento del sistema inmune"
+      ],
+      "propiedades": [
+        "Digestivo",
+        "Antiemético",
+        "Antimicrobiano",
+        "Rico en vitamina C"
+      ],
+      "modo_uso": "Jugo, cáscara en infusión",
+      "precauciones": "Puede causar fotosensibilidad. Evitar exposición solar después de uso tópico."
+    },
+    "common_rue": {
+      "nombre_cientifico": "Ruta graveolens",
+      "nombre_comun": "Ruda Común, Naagdalli",
+      "familia": "Rutaceae",
+      "usos_tradicionales": [
+        "Alivio de cólicos menstruales",
+        "Tratamiento de problemas digestivos",
+        "Propiedades antiespasmódicas",
+        "Repelente de insectos"
+      ],
+      "propiedades": [
+        "Antiespasmódico",
+        "Emenagogo",
+        "Antiparasitario",
+        "Rubefaciente"
+      ],
+      "modo_uso": "Infusión de hojas (dosis muy bajas), uso tópico",
+      "precauciones": "TÓXICA en dosis altas. No usar durante embarazo. Solo uso profesional."
+    },
+    "doddpathre": {
+      "nombre_cientifico": "Plectranthus amboinicus",
+      "nombre_comun": "Orégano Cubano, Doddpathre",
+      "familia": "Lamiaceae",
+      "usos_tradicionales": [
+        "Tratamiento de tos y resfriados",
+        "Alivio de asma",
+        "Mejora de digestión",
+        "Propiedades antiinflamatorias"
+      ],
+      "propiedades": [
+        "Expectorante",
+        "Antitusivo",
+        "Digestivo",
+        "Antimicrobiano"
+      ],
+      "modo_uso": "Jugo de hojas, infusión, uso tópico",
+      "precauciones": "Generalmente seguro. Evitar en exceso durante embarazo."
+    },
+    "ekka": {
+      "nombre_cientifico": "Calotropis gigantea",
+      "nombre_comun": "Corona Real, Ekka",
+      "familia": "Apocynaceae",
+      "usos_tradicionales": [
+        "Tratamiento de afecciones de la piel",
+        "Alivio de asma",
+        "Propiedades purgantes",
+        "Uso en medicina tradicional"
+      ],
+      "propiedades": [
+        "Purgante",
+        "Antiinflamatorio",
+        "Látex medicinal",
+        "Antimicrobiano"
+      ],
+      "modo_uso": "SOLO uso externo con látex, bajo supervisión estricta",
+      "precauciones": "ALTAMENTE TÓXICA si se ingiere. Solo uso profesional."
+    },
+    "ganigale": {
+      "nombre_cientifico": "Ixora coccinea",
+      "nombre_comun": "Ixora, Ganigale",
+      "familia": "Rubiaceae",
+      "usos_tradicionales": [
+        "Tratamiento de diarrea",
+        "Propiedades astringentes",
+        "Tratamiento de problemas menstruales",
+        "Cicatrización de heridas"
+      ],
+      "propiedades": [
+        "Astringente",
+        "Hemostático",
+        "Antiinflamatorio",
+        "Cicatrizante"
+      ],
+      "modo_uso": "Decocción de flores y hojas",
+      "precauciones": "Generalmente seguro. Consultar profesional."
+    },
+    "ganike": {
+      "nombre_cientifico": "Abrus precatorius",
+      "nombre_comun": "Gunja, Ojo de Cangrejo",
+      "familia": "Fabaceae",
+      "usos_tradicionales": [
+        "Tratamiento tópico de afecciones de piel",
+        "Propiedades oftálmicas (uso tradicional)",
+        "Uso en medicina ayurvédica procesada"
+      ],
+      "propiedades": [
+        "Antiinflamatorio (procesado)",
+        "Oftálmico (uso tradicional)",
+        "Dermatológico (externo)"
+      ],
+      "modo_uso": "SOLO uso profesional con preparados especiales",
+      "precauciones": "EXTREMADAMENTE TÓXICA. Las semillas pueden ser mortales. NUNCA ingerir sin procesamiento profesional."
+    },
+    "gasagase": {
+      "nombre_cientifico": "Papaver somniferum",
+      "nombre_comun": "Amapola, Adormidera",
+      "familia": "Papaveraceae",
+      "usos_tradicionales": [
+        "Alivio del dolor (uso farmacéutico)",
+        "Tratamiento de tos",
+        "Propiedades sedantes",
+        "Uso culinario de semillas"
+      ],
+      "propiedades": [
+        "Analgésico",
+        "Sedante",
+        "Antitusivo",
+        "Nutritivo (semillas)"
+      ],
+      "modo_uso": "Semillas en cocina. Extractos SOLO uso farmacéutico",
+      "precauciones": "Planta controlada. Contiene opiáceos. Solo semillas seguras en cocina."
+    },
+    "globe_amarnath": {
+      "nombre_cientifico": "Gomphrena globosa",
+      "nombre_comun": "Amaranto Globo, Perpetua",
+      "familia": "Amaranthaceae",
+      "usos_tradicionales": [
+        "Tratamiento de problemas respiratorios",
+        "Alivio de tos",
+        "Propiedades expectorantes",
+        "Tratamiento de diabetes"
+      ],
+      "propiedades": [
+        "Expectorante",
+        "Antidiabético",
+        "Antioxidante",
+        "Antiinflamatorio"
+      ],
+      "modo_uso": "Infusión de flores",
+      "precauciones": "Generalmente seguro. Consultar médico si diabético."
+    },
+    "honge": {
+      "nombre_cientifico": "Pongamia pinnata",
+      "nombre_comun": "Honge, Karanja",
+      "familia": "Fabaceae",
+      "usos_tradicionales": [
+        "Tratamiento de afecciones de piel",
+        "Propiedades antisépticas",
+        "Alivio de reumatismo",
+        "Uso en productos veterinarios"
+      ],
+      "propiedades": [
+        "Antiséptico",
+        "Antiinflamatorio",
+        "Insecticida",
+        "Dermatológico"
+      ],
+      "modo_uso": "Aceite tópico (NUNCA ingerir)",
+      "precauciones": "TÓXICO si se ingiere. Solo uso externo."
+    },
+    "indian_beech": {
+      "nombre_cientifico": "Pongamia pinnata",
+      "nombre_comun": "Indian Beech, Pongamia",
+      "familia": "Fabaceae",
+      "usos_tradicionales": [
+        "Tratamiento de afecciones de piel",
+        "Propiedades antisépticas",
+        "Alivio de dolor articular",
+        "Cicatrización de heridas"
+      ],
+      "propiedades": [
+        "Antiséptico",
+        "Antiinflamatorio",
+        "Cicatrizante",
+        "Analgésico tópico"
+      ],
+      "modo_uso": "Aceite tópico",
+      "precauciones": "TÓXICO si se ingiere. Solo uso externo."
+    },
+    "indian_mustard": {
+      "nombre_cientifico": "Brassica juncea",
+      "nombre_comun": "Mostaza India, Rai",
+      "familia": "Brassicaceae",
+      "usos_tradicionales": [
+        "Mejora de digestión",
+        "Alivio de congestión respiratoria",
+        "Estimulación de circulación",
+        "Propiedades antimicrobianas"
+      ],
+      "propiedades": [
+        "Rubefaciente",
+        "Digestivo",
+        "Expectorante",
+        "Antimicrobiano"
+      ],
+      "modo_uso": "Semillas en cocina, cataplasma, aceite tópico",
+      "precauciones": "Puede causar irritación de piel. Diluir para uso tópico."
+    },
+    "insulin": {
+      "nombre_cientifico": "Costus igneus",
+      "nombre_comun": "Insulin Plant, Kostum",
+      "familia": "Costaceae",
+      "usos_tradicionales": [
+        "Control de diabetes",
+        "Reducción de azúcar en sangre",
+        "Mejora del metabolismo",
+        "Propiedades antioxidantes"
+      ],
+      "propiedades": [
+        "Antidiabético",
+        "Hipoglucemiante",
+        "Antioxidante",
+        "Antiinflamatorio"
+      ],
+      "modo_uso": "Hojas frescas masticadas, jugo, infusión",
+      "precauciones": "Monitorear niveles de azúcar. Puede causar hipoglucemia."
+    },
+    "kambajala": {
+      "nombre_cientifico": "Phyllanthus niruri",
+      "nombre_comun": "Chanca Piedra, Kambajala",
+      "familia": "Phyllanthaceae",
+      "usos_tradicionales": [
+        "Tratamiento de cálculos renales",
+        "Mejora de salud hepática",
+        "Propiedades diuréticas",
+        "Tratamiento de ictericia"
+      ],
+      "propiedades": [
+        "Litolítico",
+        "Hepatoprotector",
+        "Diurético",
+        "Antiviral"
+      ],
+      "modo_uso": "Decocción de planta entera, extracto",
+      "precauciones": "Puede interactuar con medicamentos. Consultar médico."
+    },
+    "karanda": {
+      "nombre_cientifico": "Carissa carandas",
+      "nombre_comun": "Karanda, Ciruela Natal",
+      "familia": "Apocynaceae",
+      "usos_tradicionales": [
+        "Mejora de digestión",
+        "Tratamiento de diarrea",
+        "Propiedades antioxidantes",
+        "Fortalecimiento del sistema inmune"
+      ],
+      "propiedades": [
+        "Astringente",
+        "Antioxidante",
+        "Nutritivo",
+        "Antimicrobiano"
+      ],
+      "modo_uso": "Fruta fresca, mermelada",
+      "precauciones": "Generalmente seguro en consumo alimentario."
+    },
+    "kasambruga": {
+      "nombre_cientifico": "Mussaenda erythrophylla",
+      "nombre_comun": "Kasambruga, Mussaenda",
+      "familia": "Rubiaceae",
+      "usos_tradicionales": [
+        "Tratamiento de fiebre",
+        "Propiedades antiinflamatorias",
+        "Alivio de tos",
+        "Tratamiento de infecciones"
+      ],
+      "propiedades": [
+        "Antipirético",
+        "Antiinflamatorio",
+        "Antimicrobiano",
+        "Expectorante"
+      ],
+      "modo_uso": "Decocción de flores y hojas",
+      "precauciones": "Consultar profesional antes de usar."
+    },
+    "nelavembu": {
+      "nombre_cientifico": "Andrographis paniculata",
+      "nombre_comun": "Nelavembu, Rey de los Amargos",
+      "familia": "Acanthaceae",
+      "usos_tradicionales": [
+        "Tratamiento de fiebre y dengue",
+        "Fortalecimiento del sistema inmune",
+        "Propiedades antivirales",
+        "Protección hepática"
+      ],
+      "propiedades": [
+        "Antipirético",
+        "Inmunomodulador",
+        "Antiviral",
+        "Hepatoprotector"
+      ],
+      "modo_uso": "Decocción, extracto, cápsulas",
+      "precauciones": "Muy amargo. Puede causar malestar digestivo. Evitar durante embarazo."
+    },
+    "rasna": {
+      "nombre_cientifico": "Pluchea lanceolata",
+      "nombre_comun": "Rasna",
+      "familia": "Asteraceae",
+      "usos_tradicionales": [
+        "Tratamiento de artritis",
+        "Alivio de dolor articular",
+        "Propiedades antiinflamatorias",
+        "Tratamiento de reumatismo"
+      ],
+      "propiedades": [
+        "Antiinflamatorio",
+        "Analgésico",
+        "Antirreumático",
+        "Antipirético"
+      ],
+      "modo_uso": "Decocción de raíz, aceite tópico",
+      "precauciones": "Generalmente seguro. Consultar médico."
+    },
+    "rose_apple": {
+      "nombre_cientifico": "Syzygium jambos",
+      "nombre_comun": "Manzana Rosa, Pomarrosa",
+      "familia": "Myrtaceae",
+      "usos_tradicionales": [
+        "Mejora de digestión",
+        "Tratamiento de diarrea",
+        "Propiedades astringentes",
+        "Control de diabetes"
+      ],
+      "propiedades": [
+        "Astringente",
+        "Antidiabético",
+        "Nutritivo",
+        "Antioxidante"
+      ],
+      "modo_uso": "Fruta fresca, decocción de hojas",
+      "precauciones": "Generalmente seguro en consumo alimentario."
+    },
+    "roxburgh_fig": {
+      "nombre_cientifico": "Ficus auriculata",
+      "nombre_comun": "Higo de Roxburgh, Timla",
+      "familia": "Moraceae",
+      "usos_tradicionales": [
+        "Tratamiento de problemas digestivos",
+        "Mejora de apetito",
+        "Propiedades astringentes",
+        "Tratamiento de diarrea"
+      ],
+      "propiedades": [
+        "Digestivo",
+        "Astringente",
+        "Nutritivo",
+        "Antiinflamatorio"
+      ],
+      "modo_uso": "Fruta fresca, decocción de corteza",
+      "precauciones": "Generalmente seguro. Puede causar alergias en sensibles al látex."
     }
   },
   "disclaimer": "Esta información es solo para fines educativos. Siempre consulte a un profesional de la salud antes de usar plantas medicinales para tratamiento.",
