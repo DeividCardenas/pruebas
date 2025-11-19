@@ -204,10 +204,37 @@ def predict_image(image_path):
 
 
 @app.route('/')
-def index():
-    """Página principal."""
-    return render_template('index.html',
+def home():
+    """Página de inicio (landing)."""
+    return render_template('home.html',
                          num_classes=len(class_names),
+                         model_loaded=model is not None)
+
+
+@app.route('/classifier')
+def classifier():
+    """Página del clasificador."""
+    return render_template('classifier.html',
+                         num_classes=len(class_names),
+                         model_loaded=model is not None)
+
+
+@app.route('/gallery')
+def gallery():
+    """Página de galería de plantas."""
+    plantas = plants_info.get('plantas_medicinales', {})
+
+    # Contar familias únicas
+    familias = set()
+    for plant_info in plantas.values():
+        if 'familia' in plant_info:
+            familias.add(plant_info['familia'])
+
+    return render_template('gallery.html',
+                         plants=plantas,
+                         plants_json=json.dumps(plantas),
+                         num_plants=len(plantas),
+                         num_families=len(familias),
                          model_loaded=model is not None)
 
 
