@@ -22,31 +22,31 @@ Sistema de clasificación de plantas medicinales usando Transfer Learning con Py
 
 ## 🎯 Descripción
 
-Este proyecto implementa un sistema completo de clasificación de plantas medicinales utilizando técnicas avanzadas de Visión Computacional y Deep Learning. El sistema permite:
+Sistema de clasificación automática de plantas medicinales basado en Visión Computacional y Deep Learning. El clasificador procesa imágenes de hojas y proporciona:
 
-- **Clasificar** diferentes especies de plantas medicinales a partir de imágenes
-- **Identificar** la planta y sugerir usos tradicionales
-- **Proporcionar** información detallada sobre propiedades y precauciones
+- Identificación de especie con 99 clases disponibles
+- Top-3 predicciones con niveles de confianza
+- Información sobre usos tradicionales y precauciones
 
-El proyecto fue desarrollado como trabajo final del curso de Inteligencia Artificial, aplicando Transfer Learning con MobileNetV2 para obtener alta precisión incluso con datasets limitados.
+Desarrollado como proyecto final para el curso de Inteligencia Artificial, este sistema aplica Transfer Learning con MobileNetV2 alcanzando 98.51% de accuracy en validación.
 
 ## ✨ Características
 
-### Técnicas
+### Técnicas Implementadas
 
-- ✅ **Transfer Learning** con MobileNetV2 pre-entrenado en ImageNet
-- ✅ **Data Augmentation** para mejorar la generalización
-- ✅ **Early Stopping** para evitar overfitting
-- ✅ **Learning Rate Scheduling** para optimizar el entrenamiento
-- ✅ **Matriz de Confusión** y métricas detalladas
+- Transfer Learning con MobileNetV2 (pesos pre-entrenados ImageNet)
+- Data Augmentation con transformaciones geométricas y de color
+- Early Stopping con patience de 10 épocas
+- Learning Rate Scheduler (StepLR)
+- Evaluación con matriz de confusión y métricas por clase
 
-### Funcionalidades
+### Funcionalidades del Sistema
 
-- 🌱 Clasificación de 99 especies de plantas medicinales
-- 📊 Visualización de probabilidades y top-3 predicciones
-- 💊 Base de conocimientos con usos tradicionales y precauciones
-- 🌐 Interfaz web profesional con Flask
-- 📓 Notebooks interactivos para experimentación
+- Clasificación de 99 especies de plantas medicinales
+- Predicciones con niveles de confianza (top-3)
+- Base de datos con información medicinal tradicional
+- Interfaz web construida con Flask
+- Notebooks Jupyter para análisis y entrenamiento
 
 ## 🏗️ Arquitectura del Proyecto
 
@@ -210,31 +210,89 @@ Abre tu navegador en `http://localhost:5000` y prueba el clasificador.
 - **Visualización**: Matriz de confusión, curvas de aprendizaje
 - **Análisis**: Errores por clase, distribución de confianza
 
+## 🧠 Arquitectura de la Red Neuronal
+
+### Configuración del Modelo
+
+El sistema utiliza **MobileNetV2** con Transfer Learning, aprovechando pesos pre-entrenados en ImageNet. Esta arquitectura fue seleccionada por su balance entre precisión y eficiencia computacional.
+
+**Especificaciones técnicas:**
+
+```python
+# Arquitectura base
+Base: MobileNetV2 (pre-trained on ImageNet)
+Input shape: (batch_size, 3, 224, 224)
+
+# Capas congeladas
+Freeze ratio: 70% (primeras 110 de 158 capas)
+Trainable layers: Últimas 48 capas + clasificador personalizado
+
+# Clasificador personalizado
+nn.Sequential(
+    nn.Dropout(p=0.5),
+    nn.Linear(in_features=1280, out_features=99)
+)
+```
+
+**Distribución de parámetros:**
+
+| Componente | Parámetros | Porcentaje |
+|------------|------------|------------|
+| Parámetros totales | 2,350,691 | 100% |
+| Parámetros entrenables | 1,870,563 | 79.6% |
+| Parámetros congelados | 480,128 | 20.4% |
+
+### Hiperparámetros de Entrenamiento
+
+```yaml
+# Configuración principal
+batch_size: 32
+epochs: 50 (early stopping en 47)
+learning_rate: 0.001
+optimizer: Adam
+loss_function: CrossEntropyLoss
+
+# Learning Rate Scheduler
+type: StepLR
+step_size: 10  # Reduce LR cada 10 épocas
+gamma: 0.1     # Factor de reducción
+
+# Regularización
+dropout: 0.5
+weight_decay: 0
+early_stopping_patience: 10
+```
+
+### Flujo de Datos
+
+```
+Imagen (RGB) → Resize(224x224) → Normalización → MobileNetV2 Features
+→ Global Average Pooling → Dropout(0.5) → Linear(1280→99) → Softmax → Predicción
+```
+
 ## 📊 Resultados
 
-El modelo entrenado logró los siguientes resultados:
+### Métricas de Rendimiento
 
-### Métricas Principales
-
-| Métrica | Train | Validation | Observación |
-|---------|-------|------------|-------------|
-| **Accuracy** | 99.54% | **98.51%** | Excelente generalización |
-| **Loss** | 0.0178 | 0.0530 | Bajo overfitting |
+| Métrica | Training | Validation | Gap |
+|---------|----------|------------|-----|
+| **Accuracy** | 99.54% | **98.51%** | 1.03% |
+| **Loss** | 0.0178 | 0.0530 | - |
 
 ### Detalles del Entrenamiento
 
-- **Épocas entrenadas**: 47 (con early stopping)
-- **Arquitectura**: MobileNetV2
-- **Parámetros totales**: 2,350,691
-- **Parámetros entrenables**: 1,870,563 (79.6%)
-- **Tiempo de entrenamiento**: ~3 horas en CPU
+- Épocas entrenadas: 47 (early stopping activado)
+- Arquitectura: MobileNetV2
+- Parámetros totales: 2,350,691
+- Parámetros entrenables: 1,870,563 (79.6%)
+- Tiempo total: ~3 horas (CPU Intel/AMD)
 
-### Características del Modelo
+### Rendimiento del Sistema
 
-- ✅ Alta precisión (98.51% en validación)
-- ✅ Bajo overfitting (diferencia train-val: ~1%)
-- ✅ Eficiente para CPU (~45ms por imagen)
-- ✅ 99 clases de plantas medicinales
+- Precisión en validación: 98.51%
+- Gap train-validation: 1.03%
+- Tiempo de inferencia: ~45ms por imagen (CPU)
+- Clases soportadas: 99 especies
 
 ## 🛠️ Tecnologías Utilizadas
 
