@@ -27,20 +27,16 @@ wheels/
 .ipynb_checkpoints
 *.ipynb_checkpoints/
 
-# PyTorch
-*.pth
-*.pt
-checkpoint/
+# PyTorch - Permitir subir modelos entrenados (son ~23 MB, OK para GitHub)
+# Los modelos .pth ya no están ignorados
 
-# Data
+# Data - NO subir imágenes (22+ GB - demasiado grande para GitHub)
+# Usar Git LFS, Google Drive o README con link de descarga
 data/raw/*
 !data/raw/.gitkeep
+!data/raw/README.md
 data/processed/*
 !data/processed/.gitkeep
-
-# Models (except gitkeep)
-models/*
-!models/.gitkeep
 
 # Flask
 instance/
