@@ -4,7 +4,7 @@
 
 **Proyecto**: #10 - Clasificación de Tipos de Plantas Medicinales para Uso Tradicional
 **Curso**: Visión Computacional
-**Equipo**: 3 integrantes
+**Equipo**: 2 integrantes
 **Fecha**: Noviembre 2025
 **Duración**: 2 semanas
 
