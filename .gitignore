@@ -27,10 +27,6 @@ wheels/
 .ipynb_checkpoints
 *.ipynb_checkpoints/
 
-# PyTorch - Permitir subir modelos entrenados (son ~23 MB, OK para GitHub)
-# Los modelos .pth ya no están ignorados
-
-# Data - NO subir imágenes (22+ GB - demasiado grande para GitHub)
 # Usar Git LFS, Google Drive o README con link de descarga
 data/raw/*
 !data/raw/.gitkeep

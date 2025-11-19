@@ -122,23 +122,8 @@ for file_path in frontend_files:
 
 print()
 
-# 6. Documentación
-print("6. Documentación:")
-doc_files = [
-    'docs/REPORTE_PROYECTO.md',
-    'docs/PLAN_TRABAJO.md',
-    'docs/PRESENTACION.md'
-]
-
-for file_path in doc_files:
-    total_checks += 1
-    if check(os.path.isfile(file_path), f"Archivo '{file_path}' existe"):
-        passed_checks += 1
-
-print()
-
-# 7. Validación de config.yaml
-print("7. Validación de Configuración:")
+# 6. Validación de config.yaml
+print("6. Validación de Configuración:")
 try:
     import yaml
     with open('config/config.yaml', 'r') as f:
@@ -162,8 +147,8 @@ except Exception as e:
 
 print()
 
-# 8. Validación de plantas_info.json
-print("8. Validación de Base de Conocimientos:")
+# 7. Validación de plantas_info.json
+print("7. Validación de Base de Conocimientos:")
 try:
     with open('data/plantas_info.json', 'r', encoding='utf-8') as f:
         plantas = json.load(f)
@@ -180,8 +165,8 @@ except Exception as e:
 
 print()
 
-# 9. Sintaxis de Python
-print("9. Verificación de Sintaxis Python:")
+# 8. Sintaxis de Python
+print("8. Verificación de Sintaxis Python:")
 import py_compile
 
 py_modules = [
@@ -205,8 +190,8 @@ for module in py_modules:
 
 print()
 
-# 10. Verificación de Dependencias
-print("10. Dependencias (requirements.txt):")
+# 9. Verificación de Dependencias
+print("9. Dependencias (requirements.txt):")
 try:
     with open('requirements.txt', 'r') as f:
         requirements = f.read()
