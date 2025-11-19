@@ -3,7 +3,7 @@
 ## Información del Proyecto
 
 **Proyecto**: #10 - Clasificación de Tipos de Plantas Medicinales para Uso Tradicional
-**Curso**: Visión Computacional
+**Curso**: Inteligencia artificial
 **Equipo**: 2 integrantes
 **Fecha**: Noviembre 2025
 **Duración**: 2 semanas
@@ -28,7 +28,7 @@
 
 ## 1. Resumen Ejecutivo
 
-Este proyecto desarrolla un sistema completo de clasificación de plantas medicinales utilizando técnicas avanzadas de Visión Computacional y Deep Learning. Se implementó Transfer Learning con MobileNetV2, logrando una precisión superior al 92% en la clasificación de 30+ especies de plantas medicinales.
+Este proyecto desarrolla un sistema completo de clasificación de plantas medicinales utilizando técnicas avanzadas de Visión Computacional y Deep Learning. Se implementó Transfer Learning con MobileNetV2, logrando una precisión superior al 98% en la clasificación de 30+ especies de plantas medicinales.
 
 El sistema incluye:
 - Un modelo de CNN entrenado con Transfer Learning
@@ -210,57 +210,7 @@ F1 = 2 × (Precision × Recall) / (Precision + Recall)
 
 ### 5.1 Diagrama de Flujo del Proyecto
 
-```
-┌─────────────────────┐
-│  Recolección de     │
-│  Datos (Kaggle)     │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│  Preprocesamiento   │
-│  - Resize           │
-│  - Normalización    │
-│  - Augmentation     │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│  División de Datos  │
-│  Train/Val/Test     │
-│  (70/15/15)         │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│  Creación del       │
-│  Modelo             │
-│  (MobileNetV2)      │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│  Entrenamiento      │
-│  - Transfer Learning│
-│  - Fine-tuning      │
-│  - Early Stopping   │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│  Evaluación         │
-│  - Test Accuracy    │
-│  - Confusion Matrix │
-│  - Error Analysis   │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│  Despliegue         │
-│  - Aplicación Flask │
-│  - Asistente Web    │
-└─────────────────────┘
-```
+<img width="224" height="965" alt="Diagrama de flujo" src="https://github.com/user-attachments/assets/8293913c-d02c-466b-92f4-7255f6387511" />
 
 ### 5.2 Dataset
 
@@ -342,40 +292,8 @@ nn.Sequential(
 ```
 
 **Diagrama de la arquitectura**:
-```
-Input (224x224x3)
-       │
-       ▼
-┌──────────────────┐
-│  MobileNetV2     │
-│  (Pre-trained)   │
-│                  │
-│  - Conv Blocks   │ ◄── Congeladas (70%)
-│  - Inverted      │
-│    Residuals     │
-│                  │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│  Features        │
-│  (1280 dims)     │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│  Dropout (0.5)   │ ◄── Regularización
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│  Linear          │ ◄── Entrenada
-│  (num_classes)   │
-└────────┬─────────┘
-         │
-         ▼
-   Output (logits)
-```
+
+<img width="691" height="567" alt="Diagrama de arquitectira" src="https://github.com/user-attachments/assets/8c40d095-366d-4647-a39a-639a2960c8df" />
 
 **Número de parámetros**:
 - Total: ~3.5M
@@ -784,7 +702,7 @@ def predict_image(image_path):
 ### 9.2 Logros Principales
 
 1. **Sistema funcional end-to-end** de clasificación de plantas
-2. **Alta precisión** (>92%) en la identificación
+2. **Alta precisión** (>98%) en la identificación
 3. **Aplicación web** intuitiva y profesional
 4. **Base de conocimientos** con información útil
 5. **Código modular y reutilizable**
