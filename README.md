@@ -28,7 +28,7 @@ Este proyecto implementa un sistema completo de clasificación de plantas medici
 - **Identificar** la planta y sugerir usos tradicionales
 - **Proporcionar** información detallada sobre propiedades y precauciones
 
-El proyecto fue desarrollado como trabajo final del curso de Visión Computacional, aplicando Transfer Learning con MobileNetV2 para obtener alta precisión incluso con datasets limitados.
+El proyecto fue desarrollado como trabajo final del curso de Inteligencia Artificial, aplicando Transfer Learning con MobileNetV2 para obtener alta precisión incluso con datasets limitados.
 
 ## ✨ Características
 
@@ -157,68 +157,6 @@ python app/app.py
 
 Abre tu navegador en `http://localhost:5000` y prueba el clasificador.
 
-## 📁 Estructura del Proyecto
-
-```
-.
-├── README.md                          # Este archivo
-├── requirements.txt                   # Dependencias
-├── .gitignore                        # Archivos ignorados por git
-│
-├── config/
-│   └── config.yaml                   # Configuración del proyecto
-│
-├── src/                              # Código fuente
-│   ├── __init__.py
-│   ├── dataset/
-│   │   ├── __init__.py
-│   │   ├── download.py              # Descarga de datasets
-│   │   ├── preprocess.py            # Preprocesamiento
-│   │   └── dataset.py               # Dataset PyTorch
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── classifier.py            # Arquitectura del modelo
-│   │   └── train.py                 # Entrenamiento
-│   └── utils/
-│       ├── __init__.py
-│       └── helpers.py               # Funciones auxiliares
-│
-├── app/                              # Aplicación Flask
-│   ├── __init__.py
-│   ├── app.py                       # Backend Flask
-│   ├── templates/
-│   │   └── index.html               # Interfaz web
-│   └── static/
-│       ├── css/style.css            # Estilos
-│       ├── js/main.js               # JavaScript
-│       └── uploads/                 # Imágenes subidas
-│
-├── notebooks/                        # Jupyter Notebooks
-│   ├── 01_exploracion_datos.ipynb
-│   ├── 02_entrenamiento_modelo.ipynb
-│   └── 03_evaluacion_modelo.ipynb
-│
-├── data/                             # Datos
-│   ├── raw/                         # Datos originales
-│   ├── processed/                   # Datos procesados
-│   │   ├── train/
-│   │   ├── val/
-│   │   └── test/
-│   └── plantas_info.json            # Info de plantas
-│
-├── models/                           # Modelos entrenados
-│   ├── best_model.pth               # Mejor modelo
-│   └── checkpoints/                 # Checkpoints
-│
-├── docs/                             # Documentación
-│   ├── REPORTE_PROYECTO.md          # Reporte detallado
-│   ├── PLAN_TRABAJO.md              # Plan de trabajo
-│   └── PRESENTACION.md              # Outline de presentación
-│
-└── tests/                            # Tests unitarios
-    └── __init__.py
-```
-
 ## 🔬 Metodología
 
 ### 1. Recolección de Datos
@@ -267,29 +205,6 @@ Abre tu navegador en `http://localhost:5000` y prueba el clasificador.
 - **Métricas**: Accuracy, Precision, Recall, F1-Score
 - **Visualización**: Matriz de confusión, curvas de aprendizaje
 - **Análisis**: Errores por clase, distribución de confianza
-
-## 📊 Resultados
-
-Los resultados varían según el dataset utilizado. Ejemplo con Indian Medicinal Leaves Dataset:
-
-- **Test Accuracy**: ~92-95%
-- **Precision promedio**: ~0.93
-- **Recall promedio**: ~0.92
-- **F1-Score promedio**: ~0.92
-
-Ver `docs/REPORTE_PROYECTO.md` para resultados detallados.
-
-## 👥 Equipo
-
-- **Miembro 1**: Preprocesamiento de datos y dataset
-- **Miembro 2**: Modelado y entrenamiento
-- **Miembro 3**: Aplicación web y documentación
-
-## 📚 Documentación
-
-- [**Reporte del Proyecto**](docs/REPORTE_PROYECTO.md): Documento técnico completo
-- [**Plan de Trabajo**](docs/PLAN_TRABAJO.md): Planificación de 2 semanas
-- [**Presentación**](docs/PRESENTACION.md): Outline para la presentación final
 
 ## 🛠️ Tecnologías Utilizadas
 
