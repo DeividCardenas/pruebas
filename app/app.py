@@ -309,6 +309,294 @@ def health():
     })
 
 
+@app.route('/chatbot', methods=['POST'])
+def chatbot():
+    """
+    Endpoint del chatbot - Procesa consultas sobre plantas medicinales.
+
+    Sistema inteligente que:
+    - Responde preguntas sobre plantas específicas
+    - Recomienda plantas según síntomas/necesidades
+    - Busca por propiedades medicinales
+    - Proporciona información detallada
+    """
+    try:
+        data = request.get_json()
+        user_message = data.get('message', '').strip().lower()
+
+        if not user_message:
+            return jsonify({
+                'success': False,
+                'error': 'Mensaje vacío'
+            })
+
+        # Procesar la consulta y generar respuesta
+        response_data = process_chatbot_query(user_message)
+
+        return jsonify(response_data)
+
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'Error al procesar consulta: {str(e)}'
+        })
+
+
+def process_chatbot_query(query):
+    """
+    Procesa la consulta del usuario y genera una respuesta inteligente.
+
+    Args:
+        query: Consulta del usuario (en minúsculas)
+
+    Returns:
+        Diccionario con respuesta y sugerencias
+    """
+    plantas = plants_info.get('plantas_medicinales', {})
+
+    # Palabras clave para diferentes tipos de consultas
+    saludos = ['hola', 'buenos', 'buenas', 'hey', 'hi', 'hello']
+    despedidas = ['adios', 'chao', 'hasta luego', 'bye']
+    ayuda = ['ayuda', 'help', 'qué puedes hacer', 'que puedes']
+
+    # 1. SALUDOS
+    if any(word in query for word in saludos):
+        return {
+            'success': True,
+            'response': '¡Hola! Soy tu Asistente Herbal. Puedo ayudarte con información sobre plantas medicinales, sus usos y propiedades. ¿Qué te gustaría saber?',
+            'suggestions': [
+                '¿Qué plantas conoces?',
+                'Plantas antiinflamatorias',
+                'Info sobre menta',
+                '¿Cómo funciona?'
+            ]
+        }
+
+    # 2. DESPEDIDAS
+    if any(word in query for word in despedidas):
+        return {
+            'success': True,
+            'response': '¡Hasta pronto! Recuerda siempre consultar con un profesional de salud antes de usar plantas medicinales. 🌿',
+            'suggestions': []
+        }
+
+    # 3. AYUDA
+    if any(word in query for word in ayuda):
+        return {
+            'success': True,
+            'response': '''Puedo ayudarte con:
+
+**Información de plantas**: "info sobre menta", "cuéntame sobre neem"
+**Búsqueda por síntomas**: "plantas para dolor de cabeza", "qué planta ayuda con la digestión"
+**Búsqueda por propiedades**: "plantas antiinflamatorias", "plantas antioxidantes"
+**Listar plantas**: "qué plantas conoces", "lista de plantas"
+
+¿Qué te gustaría saber?''',
+            'suggestions': [
+                '¿Qué plantas conoces?',
+                'Plantas para dolor de cabeza',
+                'Info sobre curcuma'
+            ]
+        }
+
+    # 4. LISTAR PLANTAS
+    if any(word in query for word in ['qué plantas', 'que plantas', 'lista', 'cuantas plantas', 'plantas disponibles']):
+        plantas_nombres = []
+        for key, info in list(plantas.items())[:10]:  # Primeras 10
+            plantas_nombres.append(info.get('nombre_comun', key))
+
+        response = f'''Conozco información de **{len(plantas)} plantas medicinales**. Aquí algunas:
+
+{', '.join(plantas_nombres)}... y {len(plantas) - 10} más.
+
+Pregúntame sobre cualquiera de ellas o busca por síntomas/propiedades.'''
+
+        return {
+            'success': True,
+            'response': response,
+            'suggestions': [
+                'Info sobre menta',
+                'Plantas antiinflamatorias',
+                'Plantas para digestión'
+            ]
+        }
+
+    # 5. BÚSQUEDA POR NOMBRE DE PLANTA
+    plant_found = None
+    plant_key = None
+    for key, info in plantas.items():
+        nombre_comun = info.get('nombre_comun', '').lower()
+        nombre_cientifico = info.get('nombre_cientifico', '').lower()
+
+        # Buscar coincidencias
+        if key in query or nombre_comun.split(',')[0].lower() in query or nombre_cientifico.lower() in query:
+            plant_found = info
+            plant_key = key
+            break
+
+    if plant_found:
+        usos = '\n'.join([f"• {uso}" for uso in plant_found.get('usos_tradicionales', [])[:4]])
+        propiedades = ', '.join(plant_found.get('propiedades', [])[:3])
+
+        response = f'''**{plant_found.get('nombre_comun', 'Planta')}** ({plant_found.get('nombre_cientifico', '')})
+
+**Familia:** {plant_found.get('familia', 'N/A')}
+
+**Usos tradicionales:**
+{usos}
+
+**Propiedades:** {propiedades}
+
+**Modo de uso:** {plant_found.get('modo_uso', 'N/A')}
+
+⚠️ **Precauciones:** {plant_found.get('precauciones', 'Consultar profesional de salud.')}'''
+
+        return {
+            'success': True,
+            'response': response,
+            'plant_info': plant_found,
+            'suggestions': [
+                '¿Otras plantas similares?',
+                'Plantas para digestión',
+                '¿Qué plantas conoces?'
+            ]
+        }
+
+    # 6. BÚSQUEDA POR SÍNTOMAS/USOS
+    sintomas_keywords = {
+        'dolor de cabeza': ['dolor de cabeza', 'cefalea', 'migraña', 'headache'],
+        'digestión': ['digestión', 'estómago', 'gastric', 'digestivo', 'nauseas', 'indigestión'],
+        'fiebre': ['fiebre', 'temperatura', 'fever', 'antipirético'],
+        'diabetes': ['diabetes', 'azúcar', 'glucosa'],
+        'inflamación': ['inflamación', 'hinchazón', 'inflam'],
+        'dolor': ['dolor', 'analgésico', 'pain'],
+        'resfriado': ['resfriado', 'tos', 'gripe', 'cold', 'congestión'],
+        'piel': ['piel', 'dermatitis', 'skin', 'heridas'],
+        'ansiedad': ['ansiedad', 'estrés', 'nervios', 'anxiety', 'stress'],
+        'artritis': ['artritis', 'articulaciones', 'arthritis'],
+        'corazón': ['corazón', 'cardiovascular', 'circulación', 'heart'],
+        'hígado': ['hígado', 'liver', 'hepat'],
+        'inmune': ['inmune', 'defensas', 'immune', 'inmunológico']
+    }
+
+    matching_plants = []
+    for sintoma, keywords in sintomas_keywords.items():
+        if any(kw in query for kw in keywords):
+            # Buscar plantas que traten este síntoma
+            for key, info in plantas.items():
+                usos_text = ' '.join(info.get('usos_tradicionales', [])).lower()
+                propiedades_text = ' '.join(info.get('propiedades', [])).lower()
+
+                if any(kw in usos_text or kw in propiedades_text for kw in keywords):
+                    matching_plants.append({
+                        'nombre': info.get('nombre_comun', key),
+                        'cientifico': info.get('nombre_cientifico', ''),
+                        'info': info
+                    })
+
+    if matching_plants:
+        # Limitar a 5 plantas
+        matching_plants = matching_plants[:5]
+
+        response = f'Encontré **{len(matching_plants)} planta(s)** que podrían ayudarte:\n\n'
+
+        for i, plant in enumerate(matching_plants, 1):
+            propiedades = ', '.join(plant['info'].get('propiedades', [])[:2])
+            response += f"**{i}. {plant['nombre']}**\n"
+            response += f"   • Propiedades: {propiedades}\n"
+            response += f"   • Uso: {plant['info'].get('modo_uso', 'N/A')}\n\n"
+
+        response += '\n⚠️ Recuerda consultar con un profesional de salud antes de usar plantas medicinales.'
+
+        return {
+            'success': True,
+            'response': response,
+            'suggestions': [
+                f"Info sobre {matching_plants[0]['nombre'].split(',')[0]}",
+                '¿Qué plantas conoces?',
+                'Ayuda'
+            ]
+        }
+
+    # 7. BÚSQUEDA POR PROPIEDADES
+    propiedades_keywords = {
+        'antiinflamatorio': ['antiinflamatorio', 'inflamación'],
+        'antioxidante': ['antioxidante', 'oxidante'],
+        'digestivo': ['digestivo', 'digestión'],
+        'analgésico': ['analgésico', 'dolor'],
+        'antimicrobiano': ['antimicrobiano', 'antibacteriano', 'antifúngico'],
+        'diurético': ['diurético'],
+        'sedante': ['sedante', 'calmante', 'relajante']
+    }
+
+    matching_by_property = []
+    for propiedad, keywords in propiedades_keywords.items():
+        if any(kw in query for kw in keywords):
+            for key, info in plantas.items():
+                propiedades = [p.lower() for p in info.get('propiedades', [])]
+                if any(kw in ' '.join(propiedades) for kw in keywords):
+                    matching_by_property.append({
+                        'nombre': info.get('nombre_comun', key),
+                        'propiedades': info.get('propiedades', [])
+                    })
+
+    if matching_by_property:
+        matching_by_property = matching_by_property[:6]
+
+        plantas_lista = ', '.join([p['nombre'].split(',')[0] for p in matching_by_property])
+
+        response = f'''Encontré **{len(matching_by_property)} plantas** con estas propiedades:
+
+{plantas_lista}
+
+Pregúntame sobre alguna en específico para más detalles.'''
+
+        return {
+            'success': True,
+            'response': response,
+            'suggestions': [
+                f"Info sobre {matching_by_property[0]['nombre'].split(',')[0]}",
+                '¿Qué otras propiedades hay?',
+                'Plantas para digestión'
+            ]
+        }
+
+    # 8. PREGUNTA SOBRE CÓMO FUNCIONA EL SISTEMA
+    if any(word in query for word in ['cómo funciona', 'como funciona', 'cómo usar', 'how']):
+        return {
+            'success': True,
+            'response': '''Este es un sistema de clasificación de plantas medicinales con IA.
+
+**Funcionalidades:**
+• **Clasificador**: Sube una foto de una planta y te diré qué es
+• **Galería**: Explora todas las plantas disponibles
+• **Chatbot**: Pregúntame sobre plantas, síntomas o propiedades
+
+**Puedes preguntarme:**
+"¿Qué planta es buena para el dolor de cabeza?"
+"Cuéntame sobre la menta"
+"Plantas antiinflamatorias"
+
+¿Qué te gustaría saber?''',
+            'suggestions': [
+                '¿Qué plantas conoces?',
+                'Plantas para digestión',
+                'Info sobre curcuma'
+            ]
+        }
+
+    # 9. RESPUESTA POR DEFECTO
+    return {
+        'success': True,
+        'response': 'No estoy seguro de cómo ayudarte con eso. Puedo darte información sobre plantas medicinales específicas, recomendar plantas según síntomas, o buscar por propiedades. ¿Qué te gustaría saber?',
+        'suggestions': [
+            '¿Qué puedes hacer?',
+            '¿Qué plantas conoces?',
+            'Plantas para dolor de cabeza'
+        ]
+    }
+
+
 if __name__ == '__main__':
     # Cargar modelo e información
     load_model_and_info()
